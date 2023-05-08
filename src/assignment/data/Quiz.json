@@ -1,0 +1,55 @@
+{
+    "questions": [
+      {
+        "question": "What is the correct syntax to render a React component in the DOM?",
+        "options": [
+          "ReactDOM.render(component, document.getElementById('root'))",
+          "React.render(component, document.getElementById('root'))",
+          "ReactDOM.render(component, document.querySelector('#root'))",
+          "ReactDom.render(component, document.getElementById('root'))"
+        ],
+        "answer": "ReactDOM.render(component, document.getElementById('root'))"
+      },
+      {
+        "question": "Which of the following is a way to manage state in React?",
+        "options": [
+          "this.props.state",
+          "this.state",
+          "this.setState",
+          "this.getState"
+        ],
+        "answer": "this.setState"
+      },
+      {
+        "question": "In JavaScript, what does the \"===\" operator do?",
+        "options": [
+          "Compares two values for equality, but not necessarily the same type",
+          "Compares two values for equality, including type",
+          "Compares two values for inequality, but not necessarily the same type",
+          "Compares two values for inequality, including type"
+        ],
+        "answer": "Compares two values for equality, including type"
+      },
+      {
+        "question": "What is the difference between \"let\" and \"var\" in JavaScript?",
+        "options": [
+          "There is no difference",
+          "\"let\" can be reassigned, while \"var\" cannot",
+          "\"var\" can be reassigned, while \"let\" cannot",
+          "\"let\" is used for global variables, while \"var\" is used for local variables"
+        ],
+        "answer": "\"let\" can be reassigned, while \"var\" cannot"
+      },
+      {
+        "question": "In React, what is the purpose of the \"key\" prop?",
+        "options": [
+          "It is used to specify the component's ID",
+          "It is used to indicate whether the component is a child or parent",
+          "It is used to help React identify which items have changed, been added, or been removed in a list",
+          "It is used to disable the component."
+        ],
+        "answer": "It is used to help React identify which items have changed, been added, or been removed in a list"
+      }
+    ]
+  }
+  

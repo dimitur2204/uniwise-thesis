@@ -9,6 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.3",
+    "@react-latest-ui/react-sticky-notes": "^0.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
