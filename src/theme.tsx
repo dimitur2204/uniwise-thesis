@@ -24,7 +24,10 @@ export const theme = createTheme({
         styleOverrides: {
             root: {
                 color: common.white,
-                fontWeight: 400,
+                fontStyle: "normal",
+                fontWeight: 500,
+                fontSize: "12px",
+                lineHeight: "20px",
                 textTransform: 'none',
                 boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.25)",
                 borderRadius: "4px",
