@@ -13,6 +13,9 @@ export const theme = createTheme({
       main: green[500],
     },
   },
+  typography: {
+    fontFamily: 'Signika, sans-serif' 
+  },
   components: {
     MuiButtonBase: {
         defaultProps: {
