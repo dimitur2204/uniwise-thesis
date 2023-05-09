@@ -4,7 +4,7 @@ import { theme } from './theme';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Landing } from './pages/landing';
 import { Manager } from './pages/manager';
-import { Root } from './Root';
+import { Root } from './components/Root';
 import { Lockdown } from './pages/lockdown';
 
 const router = createBrowserRouter([
