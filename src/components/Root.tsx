@@ -1,10 +1,10 @@
-import { ThemeProvider } from '@emotion/react';
 import { WfPageTitleRoot, MainHeader, MainFooter, SelectedRole } from '@uniwise/flow-ui-react';
 import { get } from '@uniwise/jwt';
 import { PropsWithChildren } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Container } from './Container';
 
-export const Root: React.FC<PropsWithChildren> = ({ children }) => {
+export const Root: React.FC<PropsWithChildren> = () => {
   const labelBundle = {
     admin: 'Admin',
     adminLoginWarning: 'You are logged as admin',
@@ -30,7 +30,9 @@ export const Root: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <WfPageTitleRoot licenseName={''} />
       <MainHeader labelBundle={labelBundle} JWT={get()} selectedRole={SelectedRole.ADMIN} />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
       <MainFooter labelBundle={labelBundle} />
     </>
   );
