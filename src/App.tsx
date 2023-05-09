@@ -1,7 +1,7 @@
 import './App.css'
 import { Button, Chip, MenuItem, Select, Tab, Tabs, TextField, ThemeProvider } from '@mui/material'
 import { theme } from './theme'
-import {MainHeader, SelectedRole, WfPageTitleRoot} from '@uniwise/flow-ui-react'
+import {MainHeader, MainFooter, SelectedRole, WfPageTitleRoot} from '@uniwise/flow-ui-react'
 import { get } from '@uniwise/jwt';
 
 
@@ -67,6 +67,7 @@ function App() {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
     </div>
+    <MainFooter labelBundle={labelBundle} />
     </ThemeProvider>
 
   )
