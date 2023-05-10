@@ -62,5 +62,14 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        body2: {
+          color: grey[700],
+          fontSize: '14px',
+          lineHeight: '20px',
+        },
+      },
+    },
   },
 });
