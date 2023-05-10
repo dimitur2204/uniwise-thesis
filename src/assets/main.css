@@ -998,14 +998,6 @@ button:-moz-focusring {
 fieldset {
   padding: 0.35em 0.75em 0.625em;
 }
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
 progress {
   display: inline-block;
   vertical-align: baseline;
