@@ -1,45 +1,46 @@
 @font-face {
-  font-family: "Signika-Bold";
-  src: url(fonts/Signika-Bold.ttf) format("opentype");
+  font-family: 'Signika-Bold';
+  src: url(fonts/Signika-Bold.ttf) format('opentype');
 }
 
 @font-face {
-  font-family: "Signika-Light";
-  src: url(fonts/Signika-Light.ttf) format("opentype");
+  font-family: 'Signika-Light';
+  src: url(fonts/Signika-Light.ttf) format('opentype');
 }
 
 @font-face {
-  font-family: "Signika-Medium";
-  src: url(fonts/Signika-Medium.ttf) format("opentype");
+  font-family: 'Signika-Medium';
+  src: url(fonts/Signika-Medium.ttf) format('opentype');
 }
 
 @font-face {
-  font-family: "Signika-Regular";
-  src: url(fonts/Signika-Regular.ttf) format("opentype");
+  font-family: 'Signika-Regular';
+  src: url(fonts/Signika-Regular.ttf) format('opentype');
 }
 
 @font-face {
-  font-family: "Signika-SemiBold";
-  src: url(fonts/Signika-SemiBold.ttf) format("opentype");
+  font-family: 'Signika-SemiBold';
+  src: url(fonts/Signika-SemiBold.ttf) format('opentype');
 }
 
-body{
+.assignmentBody {
   margin: 0;
   padding: 0;
-  background-color: #A9ABAF;
+  background-color: #a9abaf;
 }
 
 a:hover {
   color: inherit;
 }
 
-h1, p{
-  margin:0;
+h1,
+p {
+  margin: 0;
 }
 
-.mainBar{
-  display:flex;
-  background-color: #C2D0C3;
+.mainBar {
+  display: flex;
+  background-color: #c2d0c3;
   width: 100%;
   font-family: 'Signika-Regular';
   padding-top: 10px;
@@ -47,41 +48,41 @@ h1, p{
   justify-content: center;
 }
 
-.left{
+.left {
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.gray{
-  color: #797C81;
+.gray {
+  color: #797c81;
 }
 
-.right{
+.right {
   width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.flowTitleAndAuthor{
+.flowTitleAndAuthor {
   padding-left: 10px;
 }
 
-.active{
-  background-color:#5b5c5a;
+.active {
+  background-color: #5b5c5a;
 }
 
-.MuiButtonBase-root-MuiIconButton-root{
+.MuiButtonBase-root-MuiIconButton-root {
   color: red;
 }
 
-.timer{
+.timer {
   display: flex;
 }
 
-.timerText{
+.timerText {
   padding-left: 5px;
 }
 
@@ -128,19 +129,19 @@ h1, p{
   position: relative;
 } */
 
-.contentContainer{
+.contentContainer {
   padding-top: 50px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.topBarContainer{
+.topBarContainer {
   display: flex;
   width: 100%;
 }
 
-.toolbar{
+.toolbar {
   width: 40%;
   height: 50px;
   border-top-left-radius: 5px;
@@ -150,20 +151,20 @@ h1, p{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color:#D7D8DA;
+  background-color: #d7d8da;
 }
 
-.exitAndSubmit{
+.exitAndSubmit {
   width: 60%;
   display: flex;
   justify-content: end;
 }
 
-.whiteBox{
+.whiteBox {
   height: 800px;
   background-color: white;
 }
 
-.toolbarIcon img{
+.toolbarIcon img {
   height: 25px;
 }

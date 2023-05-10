@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Landing } from './pages/landing';
 import { Manager } from './pages/manager';
 import { Root } from './components/Root';
-import { Lockdown } from './pages/lockdown';
+import AssignmentPage from './pages/lockdownAssignment';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'lockdown',
-        element: <Lockdown />,
+        element: <AssignmentPage />,
       },
     ],
   },

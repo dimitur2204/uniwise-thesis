@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { IconButton } from "@mui/material";
 import "./StickyNote.css";
 import { ToolbarIcon } from "../Toolbar/Toolbar";
-import StickyAdd from "../../../assets/images/addNote.png"
-import StickyRemove from "../../../assets/images/hideNote.png"
-import Trash from "../../../assets/images/trash.png"
-import Minimize from "../../../assets/images/minimize.png"
-import SmallNote from "../../../assets/images/smallNote.png"
+import StickyAdd from "../../../../assets/images/addNote.png"
+import StickyRemove from "../../../../assets/images/hideNote.png"
+import Trash from "../../../../assets/images/trash.png"
+import Minimize from "../../../../assets/images/minimize.png"
+import SmallNote from "../../../../assets/images/smallNote.png"
 
 interface StickyNoteProps {
   onAddNote?: () => void;
