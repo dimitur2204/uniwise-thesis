@@ -2,6 +2,7 @@ import { Box, Button, Card, Chip, MenuItem, Select, Tab, Tabs, TextField } from 
 import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
+import { Basic } from './components/Basic';
 
 export enum ActiveTab {
   BASIC,
@@ -76,7 +77,7 @@ export const Manager = () => {
         </Tabs>
       </Card>
       <TabPanel value={ActiveTab.BASIC} activeTab={activeTab}>
-        Item One
+        <Basic />
       </TabPanel>
       <TabPanel value={ActiveTab.HAND_OUT} activeTab={activeTab}>
         Item Two
