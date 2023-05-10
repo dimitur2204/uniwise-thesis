@@ -1,4 +1,4 @@
-import { Box, Button, Chip, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
+import { Box, Button, Card, Chip, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
 import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
@@ -54,13 +54,17 @@ export const Manager = () => {
         description="Flow subtitle and what the flow is about here"
         icon="https://via.placeholder.com/60"
       />
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Card variant="outlined" sx={{ mt: 2 }}>
         <Tabs
           value={activeTab}
           onChange={(e, v) => {
             setActiveTab(v);
           }}
           aria-label="basic tabs example"
+          sx={{
+            backgroundColor: 'background.paper',
+            borderBottomWidth: 1,
+          }}
         >
           <Tab label="Basic" {...a11yProps(ActiveTab.BASIC)} />
           <Tab label="Hand out" {...a11yProps(ActiveTab.HAND_OUT)} />
@@ -70,7 +74,7 @@ export const Manager = () => {
           <Tab label="Combine" {...a11yProps(ActiveTab.COMBINE)} />
           <Tab label="Advanced" {...a11yProps(ActiveTab.ADVANCED)} />
         </Tabs>
-      </Box>
+      </Card>
       <TabPanel value={ActiveTab.BASIC} activeTab={activeTab}>
         Item One
       </TabPanel>
