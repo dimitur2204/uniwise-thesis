@@ -52,5 +52,15 @@ export const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: grey[400],
+          color: common.black,
+          borderRadius: '0px 10px 10px 10px',
+          height: '24px',
+        },
+      },
+    },
   },
 });

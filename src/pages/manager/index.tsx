@@ -1,4 +1,4 @@
-import { Button, Chip, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
+import { Button, Card, Chip, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
 
 export const Manager = () => {
   return (
