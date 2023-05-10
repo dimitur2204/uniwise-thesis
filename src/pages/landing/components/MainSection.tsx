@@ -20,6 +20,7 @@ export const MainSection = () => {
           gap: theme.spacing(9),
           width: '100%',
           maxWidth: '86rem',
+          zIndex: 1,
         }}
       >
         <img src={personUrl} alt="person" />
