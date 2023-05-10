@@ -6,21 +6,28 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format:dry": "prettier --check ./src",
+    "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.8",
-    "@emotion/styled": "^11.10.8",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/signika": "^4.5.13",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
-    "@react-latest-ui/react-sticky-notes": "^0.2.6",
+    "@uniwise/flow-ui-react": "^3.0.5",
+    "@uniwise/jwt": "^0.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1",
+    "semantic-ui-react": "^2.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "prettier": "^2.8.8",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }

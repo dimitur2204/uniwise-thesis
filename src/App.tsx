@@ -1,17 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import AssignmentPage from './assignment/AssignmentPage'
+import './App.css';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Landing } from './pages/landing';
+import { Manager } from './pages/manager';
+import { Root } from './components/Root';
+import { Lockdown } from './pages/lockdown';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Landing />,
+  },
+  {
+    path: '/page',
+    element: <Root />,
+    children: [
+      {
+        path: 'manager',
+        element: <Manager />,
+      },
+      {
+        path: 'lockdown',
+        element: <Lockdown />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-     <AssignmentPage></AssignmentPage>
-    </div>
-  )
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

@@ -29,6 +29,10 @@ body{
   background-color: #A9ABAF;
 }
 
+a:hover {
+  color: inherit;
+}
+
 h1, p{
   margin:0;
 }

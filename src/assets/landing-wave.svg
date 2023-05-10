@@ -1,0 +1,15 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 1920 124" version="1.1" id="svg78" sodipodi:docname="waves_white.svg" inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)" width="1920"  height="124" >
+  <metadata id="metadata84">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs82"/>
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="2560" inkscape:window-height="1380" id="namedview80" showgrid="false" inkscape:zoom="1.240625" inkscape:cx="960" inkscape:cy="62" inkscape:window-x="1920" inkscape:window-y="32" inkscape:window-maximized="1" inkscape:current-layer="svg78"/>
+  <g id="g76" transform="rotate(180,960,62)">
+    <path d="M 1920,124 V 30.911005 c 0,0 -214.33,66.251993 -288,77.257735 -73.67,11.00574 -283.53,20.97321 -532.47,-36.41882 C 850.59,14.357895 783.63,0 697.67,0 611.71,0 466.6,8.830303 331.53,43.044019 196.46,77.257735 118.33,88.30303 0,88.30303 V 124 Z" fill="#ffffff" id="path74"/>
+  </g>
+</svg>
