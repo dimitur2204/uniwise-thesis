@@ -3,6 +3,7 @@ import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
 import { Basic } from './components/Basic';
+import { Deadlines } from './components/Deadlines';
 
 export enum ActiveTab {
   BASIC,
@@ -79,9 +80,7 @@ export const Manager = () => {
       <TabPanel value={ActiveTab.BASIC} activeTab={activeTab}>
         <Basic />
       </TabPanel>
-      <TabPanel value={ActiveTab.HAND_OUT} activeTab={activeTab}>
-        Item Two
-      </TabPanel>
+      <TabPanel value={ActiveTab.HAND_OUT} activeTab={activeTab}></TabPanel>
       <TabPanel value={ActiveTab.ASSOCIATES} activeTab={activeTab}>
         Item Three
       </TabPanel>
