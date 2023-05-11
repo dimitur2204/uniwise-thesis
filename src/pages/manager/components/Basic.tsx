@@ -380,19 +380,19 @@ const ParticipationBox = () => {
         </Box>
         <Box width={'100%'} display="flex">
           <PasswordField
-            disabled={!enabled}
             label="Invigilator password"
             inputProps={{
               fullWidth: true,
+              disabled: !enabled,
             }}
           />
         </Box>
         <Box width={'100%'} display="flex">
           <PasswordField
-            disabled={!enabled}
             label="Invigilator password"
             inputProps={{
               fullWidth: true,
+              disabled: !enabled,
             }}
           />
         </Box>
