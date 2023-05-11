@@ -1,6 +1,9 @@
-import { Button, ButtonGroup, Card, Stack, Typography } from '@mui/material';
-import { GridRowsProp, GridColDef } from '@mui/x-data-grid';
+import { Button, ButtonGroup, Card, Stack, Tab, Tabs, Typography } from '@mui/material';
+import { GridRowsProp, GridColDef, DataGrid } from '@mui/x-data-grid';
 import participants from '../../../assets/participants.json';
+import { Add, Check, Details, Group, Info, Menu, MenuBook, Monitor } from '@mui/icons-material';
+import { useState } from 'react';
+import { theme } from '../../../theme';
 
 const rows: GridRowsProp = participants.map((p) => ({
   id: p.id,
@@ -15,35 +18,33 @@ const columns: GridColDef[] = [
   {
     field: 'id',
     headerName: 'ID',
-    width: 150,
   },
   {
     field: 'name',
     headerName: 'Name',
-    width: 150,
   },
   {
     field: 'ects',
     headerName: 'ECTS',
-    width: 150,
   },
   {
     field: 'gradingScale',
     headerName: 'Grading Scale',
-    width: 150,
+    width: 200,
   },
   {
     field: 'start',
     headerName: 'Start',
-    width: 150,
+    width: 200,
   },
   {
     field: 'end',
     headerName: 'End',
-    width: 150,
+    width: 200,
   },
 ];
 export const Participants: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(0);
   return (
     <Card
       variant="outlined"
@@ -55,21 +56,45 @@ export const Participants: React.FC = () => {
         mt: 2,
       }}
     >
-      <Stack gap={2}>
-        <Stack>
-          <Typography component="h1" variant="h4">
-            Participants
-          </Typography>
-          <Typography variant="body2">All participant related actions</Typography>
+      <Stack gap={2} width="100%">
+        <Stack direction="row" justifyContent="space-between" alignItems="flex-end">
+          <Stack>
+            <Typography component="h1" variant="h4">
+              Participants
+            </Typography>
+            <Typography variant="body2">All participant related actions</Typography>
+          </Stack>
+          <ButtonGroup>
+            <Button startIcon={<Monitor />} variant="contained" color="secondary">
+              Participation monitor
+            </Button>
+            <Button startIcon={<Menu />} variant="contained" color="secondary">
+              Tools
+            </Button>
+          </ButtonGroup>
         </Stack>
-        <ButtonGroup>
-          <Button variant="contained" color="secondary">
+        <Stack direction="row" gap={2}>
+          <Button startIcon={<Add />} variant="contained" color="primary">
             Add participants
           </Button>
-          <Button variant="contained" color="secondary">
+          <Button startIcon={<Group />} variant="contained" color="primary">
             Manage groups
           </Button>
-        </ButtonGroup>
+        </Stack>
+        <Tabs
+          value={activeTab}
+          onChange={(e, v) => {
+            setActiveTab(v);
+          }}
+          sx={{
+            marginBottom: `-${theme.spacing(2)}`,
+          }}
+        >
+          <Tab icon={<Info />} iconPosition="start" label="Basic information" />
+          <Tab icon={<MenuBook />} iconPosition="start" label="Participant details" />
+          <Tab icon={<Check />} iconPosition="start" label="Final grade" />
+        </Tabs>
+        <DataGrid rows={rows} columns={columns} />
       </Stack>
     </Card>
   );
