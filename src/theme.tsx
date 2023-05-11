@@ -69,13 +69,8 @@ export const theme = createTheme({
           '&:before': {
             borderBottomColor: grey[200],
           },
-          // Make label white
-          '& label': {
-            color: grey[200],
-          },
-          // Make placeholder white
-          '& input::placeholder': {
-            color: grey[200],
+          '&:hover:not(.Mui-disabled):before': {
+            borderBottomColor: grey[200],
           },
         },
       },

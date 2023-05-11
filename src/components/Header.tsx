@@ -14,7 +14,8 @@ import { common, grey } from '@mui/material/colors';
 import { Container } from './Container';
 import { useState } from 'react';
 import { LanguageSelect } from './LanguageSelect';
-import { Create, HdrPlus, Menu, PlusOne } from '@mui/icons-material';
+import { Create, Menu } from '@mui/icons-material';
+import { theme } from '../theme';
 const HeaderTab = styled(Tab)(() => ({
   textTransform: 'none',
   color: common.white,
@@ -40,12 +41,19 @@ export const Header = () => {
         backgroundColor: grey[800],
       }}
     >
-      <Container>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: theme.spacing(2),
+          pt: 2,
+        }}
+      >
         <Stack direction="row" justifyContent="space-between">
           <img src={logoWhite} alt="logo" />
           <LanguageSelect />
         </Stack>
-        <Stack direction="row" justifyContent="space-between">
+        <Stack direction="row" justifyContent="space-between" alignItems="center">
           <HeaderTabs
             sx={{
               color: common.white,
@@ -61,11 +69,11 @@ export const Header = () => {
             <HeaderTab label="Support" />
             <HeaderTab label="License administration" />
           </HeaderTabs>
-          <ButtonGroup size="small" variant="contained" color="secondary">
-            <Button size="small" startIcon={<Create />}>
+          <ButtonGroup>
+            <Button variant="contained" color="secondary" startIcon={<Create />}>
               Create
             </Button>
-            <Button size="small" startIcon={<Menu />}>
+            <Button variant="contained" color="secondary" startIcon={<Menu />}>
               Combine
             </Button>
           </ButtonGroup>
