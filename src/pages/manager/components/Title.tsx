@@ -5,7 +5,7 @@ interface TitleProps extends CardProps {
   description: string;
   icon: string;
 }
-export const Title: React.FC<TitleProps> = ({ title, description, icon, ...props }) => {
+export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...props }) => {
   return (
     <Card
       variant="outlined"
@@ -14,6 +14,7 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, ...props
         justifyContent: 'space-between',
         alignItems: 'center',
         p: 2,
+        ...sx,
       }}
       {...props}
     >

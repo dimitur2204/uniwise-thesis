@@ -55,6 +55,9 @@ export const Manager = () => {
         title="Flow Title"
         description="Flow subtitle and what the flow is about here"
         icon={flowLock}
+        sx={{
+          mt: 2,
+        }}
       />
       <Card variant="outlined" sx={{ mt: 2 }}>
         <Tabs
