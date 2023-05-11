@@ -20,7 +20,13 @@ export const ActionCard: React.FC<ActionCardProps> = ({
   contentSx,
 }) => {
   return (
-    <Card variant="outlined" sx={sx}>
+    <Card
+      variant="outlined"
+      sx={{
+        minHeight: 400,
+        ...sx,
+      }}
+    >
       <Box
         sx={{
           borderBottomWidth: 1,
