@@ -10,7 +10,7 @@ export const theme = createTheme({
       dark: green[600],
     },
     secondary: {
-      main: green[500],
+      main: grey[200],
     },
   },
   typography: {
@@ -59,6 +59,19 @@ export const theme = createTheme({
           color: common.black,
           borderRadius: '0px 10px 10px 10px',
           height: '24px',
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        colorSecondary: {
+          color: grey[200],
+          '&:before': {
+            borderBottomColor: grey[200],
+          },
+          '&:hover:not(.Mui-disabled):before': {
+            borderBottomColor: grey[200],
+          },
         },
       },
     },
