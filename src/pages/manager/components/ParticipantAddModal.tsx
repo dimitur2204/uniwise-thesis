@@ -14,16 +14,13 @@ import {
 } from '@mui/material';
 import participants from '../../../assets/participants.json';
 import { theme } from '../../../theme';
-import { useState } from 'react';
 
 export const ParticipantAddModal: React.FC<Omit<ModalProps, 'children'>> = (props) => {
-  const [open, setOpen] = useState(props.open);
   return (
     <Modal
       aria-labelledby="participant-modal-title"
       aria-describedby="participant-modal-description"
       {...props}
-      open={open}
     >
       <Box
         sx={{
@@ -105,10 +102,18 @@ export const ParticipantAddModal: React.FC<Omit<ModalProps, 'children'>> = (prop
           </AccordionDetails>
         </Accordion>
         <Stack direction="row" justifyContent="flex-end" gap={2} mt={2}>
-          <Button variant="contained" color="error" onClick={() => setOpen(false)}>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={(e) => props.onClose && props.onClose(e, 'escapeKeyDown')}
+          >
             Cancel
           </Button>
-          <Button variant="contained" color="primary" onClick={() => setOpen(false)}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(e) => props.onClose && props.onClose(e, 'escapeKeyDown')}
+          >
             Add selected
           </Button>
         </Stack>

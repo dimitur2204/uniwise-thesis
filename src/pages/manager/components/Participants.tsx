@@ -46,6 +46,7 @@ const columns: GridColDef[] = [
 ];
 export const Participants: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [openParticipantModal, setOpenParticipantModal] = useState(false);
   return (
     <Card
       variant="outlined"
@@ -76,7 +77,14 @@ export const Participants: React.FC = () => {
           </ButtonGroup>
         </Stack>
         <Stack direction="row" gap={2}>
-          <Button startIcon={<Add />} variant="contained" color="primary">
+          <Button
+            startIcon={<Add />}
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setOpenParticipantModal(true);
+            }}
+          >
             Add participants
           </Button>
           <Button startIcon={<Group />} variant="contained" color="primary">
@@ -97,7 +105,12 @@ export const Participants: React.FC = () => {
           <Tab icon={<Check />} iconPosition="start" label="Final grade" />
         </Tabs>
         <DataGrid rows={rows} columns={columns} />
-        <ParticipantAddModal open={true} />
+        <ParticipantAddModal
+          open={openParticipantModal}
+          onClose={() => {
+            setOpenParticipantModal(false);
+          }}
+        />
       </Stack>
     </Card>
   );
