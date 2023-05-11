@@ -4,6 +4,7 @@ import participants from '../../../assets/participants.json';
 import { Add, Check, Details, Group, Info, Menu, MenuBook, Monitor } from '@mui/icons-material';
 import { useState } from 'react';
 import { theme } from '../../../theme';
+import { ParticipantAddModal } from './ParticipantAddModal';
 
 const rows: GridRowsProp = participants.map((p) => ({
   id: p.id,
@@ -96,6 +97,7 @@ export const Participants: React.FC = () => {
           <Tab icon={<Check />} iconPosition="start" label="Final grade" />
         </Tabs>
         <DataGrid rows={rows} columns={columns} />
+        <ParticipantAddModal open={true} />
       </Stack>
     </Card>
   );
