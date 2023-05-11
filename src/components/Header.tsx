@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button } from '@mui/material';
+import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button, IconButton } from '@mui/material';
 import logoWhite from '../assets/logo-white.svg';
 import { common, grey } from '@mui/material/colors';
 import { Container } from './Container';
@@ -107,8 +107,8 @@ export const Header = () => {
             <Button variant="contained" color="secondary" startIcon={<Create />}>
               Create
             </Button>
-            <Button variant="contained" color="secondary" startIcon={<Menu />}>
-              Combine
+            <Button aria-label="Combine" variant="contained" color="secondary">
+              <Menu />
             </Button>
           </ButtonGroup>
         </Stack>
