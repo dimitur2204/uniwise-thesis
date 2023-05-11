@@ -3,7 +3,7 @@ import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
 import { Basic } from './components/Basic';
-
+import flowLock from '../../assets/flow-type.svg';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -26,7 +26,7 @@ export const Manager = () => {
   const [activeTab, setActiveTab] = useState(ActiveTab.BASIC);
   return (
     <div>
-      <Button variant="contained" color="primary">
+      {/* <Button variant="contained" color="primary">
         Hello World
       </Button>
       <Chip label="Basic Chip" />
@@ -49,11 +49,11 @@ export const Manager = () => {
         <MenuItem value={10}>Ten</MenuItem>
         <MenuItem value={20}>Twenty</MenuItem>
         <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
+      </Select> */}
       <Title
         title="Flow Title"
         description="Flow subtitle and what the flow is about here"
-        icon="https://via.placeholder.com/60"
+        icon={flowLock}
       />
       <Card variant="outlined" sx={{ mt: 2 }}>
         <Tabs
