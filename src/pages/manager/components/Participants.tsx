@@ -52,7 +52,8 @@ export const Participants: React.FC = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        p: 2,
+        py: 2,
+        px: 5,
         mt: 2,
       }}
     >
