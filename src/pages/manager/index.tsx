@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
 import { Basic } from './components/Basic';
 import flowLock from '../../assets/flow-type.svg';
+import { Participants } from './components/Participants';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -95,6 +96,7 @@ export const Manager = () => {
       <TabPanel value={ActiveTab.ADVANCED} activeTab={activeTab}>
         Item Seven
       </TabPanel>
+      <Participants />
     </div>
   );
 };

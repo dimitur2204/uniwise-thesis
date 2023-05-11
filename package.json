@@ -16,6 +16,7 @@
     "@fontsource/signika": "^4.5.13",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
+    "@mui/x-data-grid": "^6.3.1",
     "@mui/x-date-pickers": "^6.3.1",
     "@uniwise/flow-ui-react": "^3.0.5",
     "@uniwise/jwt": "^0.0.4",

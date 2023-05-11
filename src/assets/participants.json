@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "ects": 15,
+    "gradingScale": "Passed/Not passed",
+    "start": "2018-09-01",
+    "end": "2019-01-01",
+    "finalGrade": "Passed",
+    "submitted": true
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "ects": 10,
+    "gradingScale": "Passed/Not passed",
+    "start": "2018-09-01",
+    "end": "2019-01-01",
+    "finalGrade": "Passed",
+    "submitted": true
+  },
+  {
+    "id": 3,
+    "name": "John Smith",
+    "ects": 15,
+    "gradingScale": "Passed/Not passed",
+    "start": "2018-09-01",
+    "end": "2019-01-01",
+    "finalGrade": "Passed",
+    "submitted": true
+  },
+  {
+    "id": 4,
+    "name": "Jane Smith",
+    "ects": 15,
+    "gradingScale": "Passed/Not passed",
+    "start": "2018-09-01",
+    "end": "2019-01-01",
+    "finalGrade": "Passed",
+    "submitted": true
+  },
+  {
+    "id": 5,
+    "name": "John Doe",
+    "ects": 25,
+    "gradingScale": "Passed/Not passed",
+    "start": "2018-09-01",
+    "end": "2019-01-01",
+    "finalGrade": "Not passed",
+    "submitted": true
+  }
+]
