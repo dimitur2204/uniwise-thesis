@@ -34,7 +34,7 @@ const HeaderTabs = styled(Tabs)(() => ({
 }));
 
 export const Header = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(5);
   return (
     <Box
       sx={{
