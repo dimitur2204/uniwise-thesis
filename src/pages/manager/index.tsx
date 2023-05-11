@@ -3,7 +3,6 @@ import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
 import { Basic } from './components/Basic';
-import { Deadlines } from './components/Deadlines';
 
 export enum ActiveTab {
   BASIC,
