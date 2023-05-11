@@ -1,12 +1,13 @@
 import { Box, Button, Card, CardActions, CardContent, SxProps, Typography } from '@mui/material';
 import { Check, Edit } from '@mui/icons-material';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { CARD_BORDER } from '../../../theme';
 
 export interface ActionCardProps extends PropsWithChildren {
   title: string;
   onClickEdit?: () => void;
   onClickSave?: () => void;
+  hideButtons?: boolean;
   sx?: SxProps;
   contentSx?: SxProps;
 }
@@ -17,8 +18,10 @@ export const ActionCard: React.FC<ActionCardProps> = ({
   onClickSave,
   children,
   sx,
+  hideButtons,
   contentSx,
 }) => {
+  const [editing, setEditing] = useState(false);
   return (
     <Card
       variant="outlined"
@@ -40,18 +43,37 @@ export const ActionCard: React.FC<ActionCardProps> = ({
         </Typography>
       </Box>
       <CardContent sx={contentSx}>{children}</CardContent>
-      <CardActions
-        sx={{
-          justifyContent: 'flex-end',
-        }}
-      >
-        <Button onClick={onClickEdit} variant="contained" color="secondary" endIcon={<Edit />}>
-          Edit
-        </Button>
-        <Button onClick={onClickSave} variant="contained" endIcon={<Check />}>
-          Save
-        </Button>
-      </CardActions>
+      {!hideButtons && (
+        <CardActions
+          sx={{
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            onClick={() => {
+              setEditing(true);
+              onClickEdit?.();
+            }}
+            variant="contained"
+            color="secondary"
+            endIcon={<Edit />}
+            disabled={editing}
+          >
+            Edit
+          </Button>
+          <Button
+            onClick={() => {
+              setEditing(false);
+              onClickSave?.();
+            }}
+            variant="contained"
+            endIcon={<Check />}
+            disabled={!editing}
+          >
+            Save
+          </Button>
+        </CardActions>
+      )}
     </Card>
   );
 };

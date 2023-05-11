@@ -1,5 +1,7 @@
 import {
+  Button,
   Card,
+  Chip,
   Unstable_Grid2 as Grid2,
   MenuItem,
   Stack,
@@ -26,7 +28,13 @@ const BasicBox = () => {
       onClickEdit={() => setEnabled(true)}
       onClickSave={() => setEnabled(false)}
     >
-      <Stack borderBottom={`1px solid ${CARD_BORDER}`} padding={2} direction="row" gap={3}>
+      <Stack
+        borderBottom={`1px solid ${CARD_BORDER}`}
+        padding={2}
+        paddingY={1.5}
+        direction="row"
+        gap={3}
+      >
         <Stack alignItems="center" justifyContent="center">
           <img src={flowLockIcon} alt="Flow lock" />
           <Typography variant="body1" component="p">
@@ -245,16 +253,117 @@ const DetailsBox = () => {
   );
 };
 
+const MarkingAndReviewBox = () => {
+  return (
+    <ActionCard
+      title="Marking and review"
+      contentSx={{
+        padding: 0,
+      }}
+      hideButtons
+    >
+      <Stack
+        borderBottom={`1px solid ${CARD_BORDER}`}
+        padding={2}
+        direction="row"
+        gap={3}
+        justifyContent={'space-between'}
+        alignItems={'flex-end'}
+      >
+        <Stack gap={0.5}>
+          <Typography variant="h6" component="h4">
+            Assessors
+          </Typography>
+          <Stack direction="row" gap={1}>
+            <Chip label="2 Internal assessors" />
+            <Chip label="1 External assessors" />
+          </Stack>
+        </Stack>
+        <Button variant="contained" color="secondary">
+          Add assessor
+        </Button>
+      </Stack>
+      <Stack
+        borderBottom={`1px solid ${CARD_BORDER}`}
+        padding={2}
+        paddingY={1.5}
+        direction="row"
+        gap={3}
+        justifyContent={'space-between'}
+        alignItems={'flex-end'}
+      >
+        <Stack gap={0.5}>
+          <Typography variant="h6" component="h4">
+            Reviewers
+          </Typography>
+          <Stack direction="row" gap={1}>
+            <Chip label="1 Reviewers" />
+          </Stack>
+        </Stack>
+        <Button variant="contained" color="secondary">
+          Add reviewer
+        </Button>
+      </Stack>
+      <Stack
+        borderBottom={`1px solid ${CARD_BORDER}`}
+        padding={2}
+        paddingY={1.5}
+        direction="row"
+        gap={3}
+        justifyContent={'space-between'}
+        alignItems={'flex-end'}
+      >
+        <Stack gap={0.5}>
+          <Typography variant="h6" component="h4">
+            Rubrics
+          </Typography>
+          <Stack direction="row" gap={1}>
+            <Chip label="0 Rubrics" />
+          </Stack>
+        </Stack>
+        <Button variant="contained" color="secondary">
+          Add rubric
+        </Button>
+      </Stack>
+      <Stack
+        gap={3}
+        padding={2}
+        paddingY={1.5}
+        paddingBottom={0}
+        direction="row"
+        justifyContent={'space-between'}
+        alignItems={'flex-end'}
+      >
+        <Stack gap={0.5}>
+          <Typography variant="h6" component="h4">
+            Additional
+          </Typography>
+          <Typography variant="body2" component="h4">
+            Additional material for reviewers and assessors
+          </Typography>
+        </Stack>
+        <Button variant="contained" color="secondary">
+          Additonal
+        </Button>
+      </Stack>
+    </ActionCard>
+  );
+};
+
 export const Basic = () => {
   return (
     <Grid2
       container
       spacing={3}
       margin={0}
-      wrap="wrap"
       padding={3}
       component={Card}
       variant="outlined"
+      sx={{
+        borderTop: 'none',
+        borderTopRightRadius: 0,
+        borderTopLeftRadius: 0,
+      }}
     >
       <Grid2 xs={12} md={6}>
         <BasicBox />
@@ -264,6 +373,9 @@ export const Basic = () => {
       </Grid2>
       <Grid2 xs={12} md={6}>
         <DetailsBox />
+      </Grid2>
+      <Grid2 xs={12} md={6}>
+        <MarkingAndReviewBox />
       </Grid2>
     </Grid2>
   );

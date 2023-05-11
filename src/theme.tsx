@@ -85,5 +85,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          minHeight: '55px',
+        },
+      },
+    },
   },
 });
