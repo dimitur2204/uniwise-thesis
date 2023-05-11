@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   Chip,
@@ -14,6 +15,7 @@ import { ActionCard } from './ActionCard';
 import flowLockIcon from '../../../assets/flow-type.svg';
 import { CARD_BORDER } from '../../../theme';
 import { useState } from 'react';
+import { PasswordField } from '../../../components/PasswordField';
 
 const BasicBox = () => {
   const [exType, setExType] = useState('');
@@ -350,6 +352,53 @@ const MarkingAndReviewBox = () => {
   );
 };
 
+const ParticipationBox = () => {
+  const [enabled, setEnabled] = useState(false);
+  return (
+    <ActionCard
+      title="Participation"
+      contentSx={{
+        padding: 0,
+      }}
+      onClickEdit={() => setEnabled(true)}
+      onClickSave={() => setEnabled(false)}
+      sx={{
+        minHeight: 0,
+      }}
+    >
+      <Stack direction="row" justifyContent="space-between" padding={2} gap={4}>
+        <Box width={'100%'} display="flex">
+          <Switch disabled={!enabled} />
+          <Stack>
+            <Typography variant="subtitle1" component="p">
+              Use the lockdown browser
+            </Typography>
+            <Typography variant="body2" component="p">
+              Makes the internal assessor invisible to students
+            </Typography>
+          </Stack>
+        </Box>
+        <Box width={'100%'} display="flex">
+          <PasswordField
+            label="Invigilator password"
+            inputProps={{
+              fullWidth: true,
+            }}
+          />
+        </Box>
+        <Box width={'100%'} display="flex">
+          <PasswordField
+            label="Invigilator password"
+            inputProps={{
+              fullWidth: true,
+            }}
+          />
+        </Box>
+      </Stack>
+    </ActionCard>
+  );
+};
+
 export const Basic = () => {
   return (
     <Grid2
@@ -376,6 +425,9 @@ export const Basic = () => {
       </Grid2>
       <Grid2 xs={12} md={6}>
         <MarkingAndReviewBox />
+      </Grid2>
+      <Grid2 xs={12}>
+        <ParticipationBox />
       </Grid2>
     </Grid2>
   );
