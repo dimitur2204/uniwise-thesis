@@ -1,6 +1,7 @@
 {
     "questions": [
       {
+        "id": 1,
         "question": "What is the correct syntax to render a React component in the DOM?",
         "options": [
           "ReactDOM.render(component, document.getElementById('root'))",
@@ -11,6 +12,7 @@
         "answer": "ReactDOM.render(component, document.getElementById('root'))"
       },
       {
+        "id": 2,
         "question": "Which of the following is a way to manage state in React?",
         "options": [
           "this.props.state",
@@ -21,6 +23,7 @@
         "answer": "this.setState"
       },
       {
+        "id": 3,
         "question": "In JavaScript, what does the \"===\" operator do?",
         "options": [
           "Compares two values for equality, but not necessarily the same type",
@@ -31,6 +34,7 @@
         "answer": "Compares two values for equality, including type"
       },
       {
+        "id": 4,
         "question": "What is the difference between \"let\" and \"var\" in JavaScript?",
         "options": [
           "There is no difference",
@@ -41,6 +45,7 @@
         "answer": "\"let\" can be reassigned, while \"var\" cannot"
       },
       {
+        "id": 5,
         "question": "In React, what is the purpose of the \"key\" prop?",
         "options": [
           "It is used to specify the component's ID",

@@ -161,10 +161,18 @@ p {
 }
 
 .whiteBox {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
   height: 800px;
   background-color: white;
 }
 
 .toolbarIcon img {
   height: 25px;
+}
+
+.progressBar {
+  width: 40%;
+  background-color: #628010;
 }

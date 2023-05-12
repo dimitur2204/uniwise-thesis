@@ -11,6 +11,8 @@ import StickyNote from './components/StickyNote/StickyNote';
 import Notepad from './components/Notepad/Notepad';
 import Notes from '../assets/images/notes.png';
 import Collapse from '../../assets/images/reduce.png';
+import { Progress } from 'semantic-ui-react';
+import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers';
 
 export default function AssignmentPage() {
   return (
@@ -110,9 +112,9 @@ export default function AssignmentPage() {
           </div>
         </div>
         <div className="whiteBox">
-          <IconButton>
-            <img src={Collapse} alt="collapse" />
-          </IconButton>
+          <p>Question 1/10</p>
+          <Progress className='progressBar' color='green'/>
+          <QuestionAndAnswers></QuestionAndAnswers>
         </div>
       </div>
     </div>
