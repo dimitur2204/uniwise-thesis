@@ -5,6 +5,7 @@ import { TabPanel } from './components/TabPanel';
 import { Basic } from './components/Basic';
 import flowLock from '../../assets/flow-type.svg';
 import { Participants } from './components/Participants';
+import { Assignments } from './components/Assignments';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -83,7 +84,9 @@ export const Manager = () => {
       <TabPanel value={ActiveTab.BASIC} activeTab={activeTab}>
         <Basic />
       </TabPanel>
-      <TabPanel value={ActiveTab.HAND_OUT} activeTab={activeTab}></TabPanel>
+      <TabPanel value={ActiveTab.HAND_OUT} activeTab={activeTab}>
+        <Assignments />
+      </TabPanel>
       <TabPanel value={ActiveTab.ASSOCIATES} activeTab={activeTab}>
         Item Three
       </TabPanel>

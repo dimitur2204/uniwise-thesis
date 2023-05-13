@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button, IconButton } from '@mui/material';
+import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button } from '@mui/material';
 import logoWhite from '../assets/logo-white.svg';
 import { common, grey } from '@mui/material/colors';
 import { Container } from './Container';

@@ -1,3 +1,4 @@
+import { Message, Settings } from '@mui/icons-material';
 import { Box, Button, ButtonGroup, Card, CardProps, Typography } from '@mui/material';
 
 interface TitleProps extends CardProps {
@@ -28,10 +29,10 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
         </Box>
       </Box>
       <ButtonGroup>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" startIcon={<Settings />}>
           Settings
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" startIcon={<Message />}>
           Messages
         </Button>
       </ButtonGroup>
