@@ -10,6 +10,10 @@ import React, { useState } from 'react';
 import StickyNote from '../StickyNote/StickyNote';
 import Notepad from '../Notepad/Notepad';
 
+interface Props{
+  handleToggleOverview: () => void;
+}
+
 export const ToolbarIcon = styled(IconButton)({
   '&:hover': {
     backgroundColor: '#8D8D8D',
@@ -19,19 +23,17 @@ export const ToolbarIcon = styled(IconButton)({
     backgroundColor: '#8D8D8D',
     borderRadius: '0px',
   },
-  '&:focus': {
-    backgroundColor: '#8D8D8D',
-    borderRadius: '0px',
-  },
 });
 
-export const Toolbar = () => {
+export const Toolbar: React.FC<Props> = ({handleToggleOverview}) => {
+
+  
   return (
     <>
       <ToolbarIcon className="toolbarIcon">
         <img src={Flag} alt="flag" />
       </ToolbarIcon>
-      <ToolbarIcon className="toolbarIcon">
+      <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview}>
         <img src={Overview} alt="overview" />
       </ToolbarIcon>
       <Notepad className="toolbarIcon" />

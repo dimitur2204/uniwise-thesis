@@ -8,57 +8,58 @@ import { Checkbox } from '@uniwise/flow-ui-react';
 import questionsData from '../../data/Quiz.json';
 
 interface Props {
-  /*   questions: Array<{
-    id: number;
-    question: string;
-    options: string[];
-    answer: string;
-  }>; */
   currentQuestionIndex: number;
   setCurrentQuestionIndex: (index: number) => void;
-  /* selectedOptionIndices: (number | null)[]; */
+  selectedOptionIndices: (number | null)[];
+  handleToggleOverview: () => void
 }
 
 const Overview: React.FC<Props> = ({
-  /* questions, */ currentQuestionIndex,
+  currentQuestionIndex,
   setCurrentQuestionIndex,
- /*  selectedOptionIndices, */
+  selectedOptionIndices,
+  handleToggleOverview
 }) => {
+
   const handleQuestionClick = (index: number) => {
     setCurrentQuestionIndex(index);
   };
 
+
   return (
-    <div className="grayContainer">
-      <div className="overviewHeader">
-        <div className="overviewHeaderTitle">
-          <h2>Overview</h2>
-        </div>
-        <div className="overviewHeaderCloseIcon">
-          <IconButton className="notepad-button">
-            <img src={Close} alt="close" />
-          </IconButton>
-        </div>
-      </div>{' '}
-      <div className="filters">
-        <Checkbox label="Flagged" />
-        <Checkbox label="Unattepmted" />
-      </div>
-      <div className="questionIDs">
-        {questionsData.questions.map((question, index) => (
-          <div
-            id={`question-${question.id}`}
-            className="idBox"
-            key={question.id}
-            onClick={() => handleQuestionClick(index)}
-          >
-            <p>{question.id}</p>
-             <div className="idBottomIndicator"></div>
-            {question.id === currentQuestionIndex + 1 && <div className="triangle"></div>}
+    <>
+        <div className="overviewHeader">
+          <div className="overviewHeaderTitle">
+            <h2>Overview</h2>
           </div>
-        ))}
-      </div>
-    </div>
+          <div className="overviewHeaderCloseIcon">
+            <IconButton className="notepad-button" onClick={handleToggleOverview}>
+              <img src={Close} alt="close" />
+            </IconButton>
+          </div>
+        </div>{' '}
+        <div className="filters">
+          <Checkbox label="Flagged" />
+          <Checkbox label="Unattepmted" />
+        </div>
+        <div className="questionIDs">
+          {questionsData.questions.map((question, index) => (
+            <div
+              id={`question-${question.id}`}
+              className="idBox"
+              key={question.id}
+              onClick={() => handleQuestionClick(index)}
+            >
+              <p>{question.id}</p>
+              {typeof selectedOptionIndices[index] === 'number' ? (
+                <div className="idBottomIndicator"></div>
+              ) : null}
+
+              {question.id === currentQuestionIndex + 1 && <div className="triangle"></div>}
+            </div>
+          ))}
+        </div>
+    </>
   );
 };
 

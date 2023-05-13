@@ -18,12 +18,34 @@ import questionsData from './data/Quiz.json';
 import SentenceFiller from './components/DragAndDrop/DragAndDrop';
 import DragAndDrop from './components/DragAndDrop/DragAndDrop';
 import Overview from './components/Overview/Overview';
-import questions from './data/Quiz.json';
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
- 
+  const [selectedOptionIndices, setSelectedOptionIndices] = useState<(number | null)[]>(
+    Array(questionsData.questions.length).fill(null),
+  );
+  const [flagged, setFlagged] = useState<(boolean | null)[]>(
+    Array(questionsData.questions.length).fill(null),
+  );
+  const [showOverview, setShowOverview] = useState(false);
+
+  const handleToggleOverview = () => {
+    setShowOverview(!showOverview);
+  };
+
+  const handleOptionSelect = (index: number) => {
+    const newSelectedOptionIndices = [...selectedOptionIndices];
+    newSelectedOptionIndices[currentQuestionIndex] = index;
+    setSelectedOptionIndices(newSelectedOptionIndices);
+  };
+
+  const handleFlagged = () => {
+    const newFlagged = [...flagged];
+    newFlagged[currentQuestionIndex] = !newFlagged[currentQuestionIndex];
+    setFlagged(newFlagged);
+  };
+
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
@@ -123,10 +145,12 @@ export default function AssignmentPage() {
       <div className="contentContainer">
         <div className="topBarContainer">
           <div className="toolbar">
-            <Toolbar />
+            <Toolbar handleToggleOverview={handleToggleOverview} />
           </div>
           <div className="exitAndSubmit">
-            <ExitButton size="large">Exit</ExitButton>
+            <ExitButton size="large" onClick={() => console.log(showOverview)}>
+              Exit
+            </ExitButton>
             <SubmitButton>Submit</SubmitButton>
           </div>
         </div>
@@ -145,15 +169,20 @@ export default function AssignmentPage() {
             currentQuestionIndex={currentQuestionIndex}
             handleNextQuestion={handleNextQuestion}
             handlePreviousQuestion={handlePreviousQuestion}
+            handleOptionSelect={handleOptionSelect}
+            selectedOptionIndices={selectedOptionIndices}
           />
           <div>
             {/* 
           <DragAndDrop sentence={sentence} options={options} /> */}
-
-            <Overview
-              currentQuestionIndex={currentQuestionIndex}
-              setCurrentQuestionIndex={setCurrentQuestionIndex}
-            ></Overview>
+              <div className={showOverview ? "grayContainer visible" : "grayContainer"}>
+              <Overview
+                currentQuestionIndex={currentQuestionIndex}
+                setCurrentQuestionIndex={setCurrentQuestionIndex}
+                selectedOptionIndices={selectedOptionIndices}
+                handleToggleOverview={handleToggleOverview}
+              />
+              </div>
           </div>
         </div>
       </div>

@@ -161,6 +161,7 @@ p {
 }
 
 .whiteBox {
+  position: relative;
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
@@ -175,4 +176,38 @@ p {
 .progressBar {
   width: 40%;
   background-color: #628010;
+}
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grayContainer {
+position: absolute;
+display: none;
+top: 0;
+width: 100%;
+background-color: #eaeaea;
+padding: 20px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+margin-bottom: 20px;
+border: 1px solid #e0e0e0;
+box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+overflow: hidden;
+margin-left: -25px;
+margin-right: -25px;
+}
+
+.visible {
+  display: block;
+  animation: dropdown 0.5s ease-in-out;
+  animation-fill-mode: forwards;
 }
