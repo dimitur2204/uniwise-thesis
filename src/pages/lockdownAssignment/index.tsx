@@ -11,12 +11,31 @@ import StickyNote from './components/StickyNote/StickyNote';
 import Notepad from './components/Notepad/Notepad';
 import Notes from '../assets/images/notes.png';
 import Collapse from '../../assets/images/reduce.png';
-import { Progress } from 'semantic-ui-react';
+import { Progress, Radio } from 'semantic-ui-react';
 import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers';
+import { useState } from 'react';
+import questionsData from './data/Quiz.json';
+import SentenceFiller from './components/DragAndDrop/DragAndDrop';
+import DragAndDrop from './components/DragAndDrop/DragAndDrop';
+import Overview from './components/Overview/Overview';
+import questions from './data/Quiz.json';
 
 export default function AssignmentPage() {
+  const totalQuestions = questionsData.questions.length;
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+ 
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  };
+
+  const handlePreviousQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+  };
+
+  const currentQuestion = questionsData.questions[currentQuestionIndex];
+
   return (
-    <div className='assignmentBody'>
+    <div className="assignmentBody">
       <div className="mainBar">
         <div className="left">
           <div>
@@ -112,9 +131,30 @@ export default function AssignmentPage() {
           </div>
         </div>
         <div className="whiteBox">
-          <p>Question 1/10</p>
-          <Progress className='progressBar' color='green'/>
-          <QuestionAndAnswers></QuestionAndAnswers>
+          <p>
+            Question {currentQuestionIndex + 1}/{totalQuestions}
+          </p>
+          <Progress
+            className="progressBar"
+            color="green"
+            value={currentQuestionIndex + 1}
+            total={totalQuestions}
+            progress="ratio"
+          />
+          <QuestionAndAnswers
+            currentQuestionIndex={currentQuestionIndex}
+            handleNextQuestion={handleNextQuestion}
+            handlePreviousQuestion={handlePreviousQuestion}
+          />
+          <div>
+            {/* 
+          <DragAndDrop sentence={sentence} options={options} /> */}
+
+            <Overview
+              currentQuestionIndex={currentQuestionIndex}
+              setCurrentQuestionIndex={setCurrentQuestionIndex}
+            ></Overview>
+          </div>
         </div>
       </div>
     </div>

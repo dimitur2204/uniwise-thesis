@@ -1,80 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import questionsData from '../../data/Quiz.json';
 import { Radio } from 'semantic-ui-react';
 import './QuestionAndAnswers.css';
 
-interface State {
+interface Props {
   currentQuestionIndex: number;
-  selectedOptionIndex: number | null;
+  handleNextQuestion?: () => void;
+  handlePreviousQuestion?: () => void;
 }
 
-class QuestionComponent extends React.Component<{}, State> {
-  state: State = {
-    currentQuestionIndex: 0,
-    selectedOptionIndex: null,
+const QuestionAndAnswers: React.FC<Props> = ({
+  currentQuestionIndex,
+  handleNextQuestion,
+  handlePreviousQuestion,
+}) => {
+  const [selectedOptionIndices, setSelectedOptionIndices] = useState<(number | null)[]>(
+    Array(questionsData.questions.length).fill(null),
+  );
+  const handleOptionSelect = (index: number) => {
+    const newSelectedOptionIndices = [...selectedOptionIndices];
+    newSelectedOptionIndices[currentQuestionIndex] = index;
+    setSelectedOptionIndices(newSelectedOptionIndices);
   };
 
-  handleOptionSelect = (index: number) => {
-    this.setState({ selectedOptionIndex: index });
-  };
+  const currentQuestion = questionsData.questions[currentQuestionIndex];
+  if (!currentQuestion) {
+    return <div>No questions found</div>;
+  }
 
-  render() {
-    const currentQuestion = questionsData.questions[this.state.currentQuestionIndex];
+  return (
+    <div>
+      <h2>{currentQuestion.question}</h2>
 
-    if (!currentQuestion) {
-      return <div>No questions found</div>;
-    }
-
-    return (
-      <div>
-        <h2>{currentQuestion.question}</h2>
-
-        {currentQuestion.options.map((option, index) => (
-          <div className="optionContainer" key={index}>
-            <div
-              className="box"
-              style={{ display: this.state.selectedOptionIndex === index ? 'block' : 'none' }}
+      {currentQuestion.options.map((option, index) => (
+        <div className="optionContainer" key={index}>
+          <div
+            className="box"
+            style={{
+              display: selectedOptionIndices[currentQuestionIndex] === index ? 'block' : 'none',
+            }}
+          />
+          <div className="option" onClick={() => handleOptionSelect(index)}>
+            <p>{option}</p>
+            <Radio
+              name={`radioGroup-${currentQuestionIndex}`}
+              checked={selectedOptionIndices[currentQuestionIndex] === index}
             />
-            <div className="option" onClick={() => this.handleOptionSelect(index)}>
-              <p>{option}</p>
-              <Radio />
-            </div>
           </div>
-        ))}
+        </div>
+      ))}
 
-        {this.renderNavigationButtons()}
-      </div>
-    );
-  }
-
-  renderNavigationButtons() {
-    const hasPreviousQuestion = this.state.currentQuestionIndex > 0;
-    const hasNextQuestion = this.state.currentQuestionIndex < questionsData.questions.length - 1;
-
-    return (
       <div>
-        {hasPreviousQuestion && (
-          <button onClick={this.handlePreviousQuestion}>Previous question</button>
+        {currentQuestionIndex > 0 && (
+          <button onClick={handlePreviousQuestion}>Previous question</button>
         )}
-        {hasNextQuestion && <button onClick={this.handleNextQuestion}>Next question</button>}
-        {!hasNextQuestion && <div>End of questions</div>}
+        {currentQuestionIndex < questionsData.questions.length - 1 && (
+          <button onClick={handleNextQuestion}>Next question</button>
+        )}
+        {currentQuestionIndex === questionsData.questions.length - 1 && <div>End of questions</div>}
       </div>
-    );
-  }
+    </div>
+  );
+};
 
-  handleNextQuestion = () => {
-    this.setState((prevState) => ({
-      currentQuestionIndex: prevState.currentQuestionIndex + 1,
-      selectedOptionIndex: null,
-    }));
-  };
-
-  handlePreviousQuestion = () => {
-    this.setState((prevState) => ({
-      currentQuestionIndex: prevState.currentQuestionIndex - 1,
-      selectedOptionIndex: null,
-    }));
-  };
-}
-
-export default QuestionComponent;
+export default QuestionAndAnswers;
