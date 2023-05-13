@@ -10,9 +10,10 @@ import {
   darken,
 } from '@mui/material';
 import { ContentCopy, Edit, Settings, Visibility } from '@mui/icons-material';
-import { common } from '@mui/material/colors';
+import { common, orange } from '@mui/material/colors';
 import { CARD_BORDER } from '../../../theme';
 import { theme } from '../../../theme';
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 export type AssignmentCardProps = {
   title: string;
@@ -108,7 +109,11 @@ export const Assignments = () => {
         py={2}
         px={5}
         gap={2}
-        borderBottom={CARD_BORDER}
+        sx={{
+          borderBottomWidth: 1,
+          borderBottomStyle: 'solid',
+          borderBottomColor: CARD_BORDER,
+        }}
       >
         <Typography variant="body2" width={'50%'} minWidth={300}>
           Here you can upload assignments and, optionally, appendix material. It will be accessible
@@ -127,17 +132,39 @@ export const Assignments = () => {
           </Button>
         </ButtonGroup>
       </Stack>
-      <Stack>
+      <Stack
+        py={2}
+        px={5}
+        gap={2}
+        sx={{
+          borderBottomWidth: 1,
+          borderBottomStyle: 'solid',
+          borderBottomColor: CARD_BORDER,
+        }}
+      >
         <Typography variant="h5" component="h3">
           Assignments list
         </Typography>
-        <AssignmentCard
-          title="Biology test"
-          description="This is the description of the assignment and what it is about"
-          author="Dimitar Nizamov"
-          reference="AC58-FK32"
-          color={theme.palette.primary.main}
-        />
+        <Grid2 spacing={2} container>
+          <Grid2 xs={12} md={6}>
+            <AssignmentCard
+              title="Biology test"
+              description="This is the description of the assignment and what it is about"
+              author="Dimitar Nizamov"
+              reference="AC58-FK32"
+              color={theme.palette.primary.main}
+            />
+          </Grid2>
+          <Grid2 xs={12} md={6}>
+            <AssignmentCard
+              title="Biology test"
+              description="This is the description of the assignment and what it is about"
+              author="Dimitar Nizamov"
+              reference="AC58-FK32"
+              color={orange[500]}
+            />
+          </Grid2>
+        </Grid2>
       </Stack>
     </Card>
   );
