@@ -1,5 +1,5 @@
 import flowMulti from '../../assets/images/flowMulti.svg';
-import { Button, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MessageIcon from '@mui/icons-material/Message';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -7,16 +7,10 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import CountDownTimer from './components/CountdownTimer';
 import { ExitButton, SubmitButton } from './components/ExitAndSubmitButtons';
 import { Toolbar } from './components/Toolbar/Toolbar';
-import StickyNote from './components/StickyNote/StickyNote';
-import Notepad from './components/Notepad/Notepad';
-import Notes from '../assets/images/notes.png';
-import Collapse from '../../assets/images/reduce.png';
-import { Progress, Radio } from 'semantic-ui-react';
+import { Loader, Progress } from 'semantic-ui-react';
 import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import questionsData from './data/Quiz.json';
-import SentenceFiller from './components/DragAndDrop/DragAndDrop';
-import DragAndDrop from './components/DragAndDrop/DragAndDrop';
 import Overview from './components/Overview/Overview';
 
 export default function AssignmentPage() {
@@ -29,6 +23,16 @@ export default function AssignmentPage() {
     Array(questionsData.questions.length).fill(null),
   );
   const [showOverview, setShowOverview] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleToggleOverview = () => {
     setShowOverview(!showOverview);
@@ -40,21 +44,45 @@ export default function AssignmentPage() {
     setSelectedOptionIndices(newSelectedOptionIndices);
   };
 
-  const handleFlagged = () => {
-    const newFlagged = [...flagged];
-    newFlagged[currentQuestionIndex] = !newFlagged[currentQuestionIndex];
-    setFlagged(newFlagged);
+  const handleFlag = () => {
+    setFlagged((prevFlagged) => {
+      const newFlagged = [...prevFlagged];
+      newFlagged[currentQuestionIndex] = !newFlagged[currentQuestionIndex];
+      return newFlagged;
+    });
   };
 
+  const isFlagged = flagged[currentQuestionIndex];
+
   const handleNextQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    const qaDiv = document.querySelector('.question-and-answers');
+    if (qaDiv) {
+      qaDiv.classList.add('fade-out');
+      setTimeout(() => {
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        qaDiv.classList.remove('fade-out');
+        qaDiv.classList.add('fade-in');
+        setTimeout(() => {
+          qaDiv.classList.remove('fade-in');
+        }, 500);
+      }, 500);
+    }
   };
 
   const handlePreviousQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+    const qaDiv = document.querySelector('.question-and-answers');
+    if (qaDiv) {
+      qaDiv.classList.add('fade-out');
+      setTimeout(() => {
+        setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+        qaDiv.classList.remove('fade-out');
+        qaDiv.classList.add('fade-in');
+        setTimeout(() => {
+          qaDiv.classList.remove('fade-in');
+        }, 500);
+      }, 500);
+    }
   };
-
-  const currentQuestion = questionsData.questions[currentQuestionIndex];
 
   return (
     <div className="assignmentBody">
@@ -127,25 +155,14 @@ export default function AssignmentPage() {
           </div>
         </div>
       </div>
-
-      {/* <div className='whiteBox'>
-            <div className='topBarContainer'>
-                <div className='toolbar'>
-                    <p>toolbar</p>
-                </div>
-                <div className='exitAndSubmit'>
-                    <Button>Exit</Button>
-                    <Button>Submit</Button>
-                </div>
-            </div>
-            
-            <p>inky</p>
-        </div> */}
-
       <div className="contentContainer">
         <div className="topBarContainer">
           <div className="toolbar">
-            <Toolbar handleToggleOverview={handleToggleOverview} />
+            <Toolbar
+              handleToggleOverview={handleToggleOverview}
+              handleFlag={handleFlag}
+              isFlagged={isFlagged}
+            />
           </div>
           <div className="exitAndSubmit">
             <ExitButton size="large" onClick={() => console.log(showOverview)}>
@@ -155,34 +172,41 @@ export default function AssignmentPage() {
           </div>
         </div>
         <div className="whiteBox">
-          <p>
-            Question {currentQuestionIndex + 1}/{totalQuestions}
-          </p>
-          <Progress
-            className="progressBar"
-            color="green"
-            value={currentQuestionIndex + 1}
-            total={totalQuestions}
-            progress="ratio"
-          />
-          <QuestionAndAnswers
-            currentQuestionIndex={currentQuestionIndex}
-            handleNextQuestion={handleNextQuestion}
-            handlePreviousQuestion={handlePreviousQuestion}
-            handleOptionSelect={handleOptionSelect}
-            selectedOptionIndices={selectedOptionIndices}
-          />
+          {isLoading ? (
+            <Loader className="loader" active size="large" />
+          ) : (
+            <>
+              <p>
+                Question {currentQuestionIndex + 1}/{totalQuestions}
+              </p>
+              <Progress
+                className="progressBar"
+                color="green"
+                value={currentQuestionIndex + 1}
+                total={totalQuestions}
+                progress="ratio"
+              />
+              <QuestionAndAnswers
+                currentQuestionIndex={currentQuestionIndex}
+                handleNextQuestion={handleNextQuestion}
+                handlePreviousQuestion={handlePreviousQuestion}
+                handleOptionSelect={handleOptionSelect}
+                selectedOptionIndices={selectedOptionIndices}
+                slideDirection={slideDirection}
+              />
+            </>
+          )}
           <div>
-            {/* 
-          <DragAndDrop sentence={sentence} options={options} /> */}
-              <div className={showOverview ? "grayContainer visible" : "grayContainer"}>
+            <div className={showOverview ? 'grayContainer visible' : 'grayContainer'}>
               <Overview
                 currentQuestionIndex={currentQuestionIndex}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}
                 selectedOptionIndices={selectedOptionIndices}
                 handleToggleOverview={handleToggleOverview}
+                handleFlag={handleFlag}
+                flagged={flagged}
               />
-              </div>
+            </div>
           </div>
         </div>
       </div>

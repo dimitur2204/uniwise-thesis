@@ -1,5 +1,6 @@
 import { IconButton } from '@mui/material';
 import Flag from '../../../../assets/images/flag.png';
+import FlagGreen from '../../../../assets/images/flagGreen.png';
 import Overview from '../../../../assets/images/overview.png';
 import Notes from '../../../../assets/images/notes.png';
 import Write from '../../../../assets/images/write.png';
@@ -10,8 +11,10 @@ import React, { useState } from 'react';
 import StickyNote from '../StickyNote/StickyNote';
 import Notepad from '../Notepad/Notepad';
 
-interface Props{
+interface Props {
   handleToggleOverview: () => void;
+  handleFlag: () => void;
+  isFlagged: boolean | null;
 }
 
 export const ToolbarIcon = styled(IconButton)({
@@ -25,14 +28,13 @@ export const ToolbarIcon = styled(IconButton)({
   },
 });
 
-export const Toolbar: React.FC<Props> = ({handleToggleOverview}) => {
-
-  
+export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isFlagged }) => {
   return (
     <>
-      <ToolbarIcon className="toolbarIcon">
+      {/* <ToolbarIcon className="toolbarIcon">
         <img src={Flag} alt="flag" />
-      </ToolbarIcon>
+      </ToolbarIcon> */}
+      <ToolbarIcon className="toolbarIcon" onClick={handleFlag}>{isFlagged ? <img src={FlagGreen} alt="flagGreen" /> : <img src={Flag} alt="flaflaggGreen" />}</ToolbarIcon>
       <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview}>
         <img src={Overview} alt="overview" />
       </ToolbarIcon>
