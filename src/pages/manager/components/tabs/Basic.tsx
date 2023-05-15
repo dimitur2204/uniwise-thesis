@@ -11,11 +11,11 @@ import {
   Typography,
 } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers';
-import { ActionCard } from './ActionCard';
-import flowLockIcon from '../../../assets/flow-type.svg';
-import { CARD_BORDER } from '../../../theme';
+import { ActionCard } from '../ActionCard';
+import flowLockIcon from '../../../../assets/flow-type.svg';
+import { CARD_BORDER } from '../../../../theme';
 import { useState } from 'react';
-import { PasswordField } from '../../../components/PasswordField';
+import { PasswordField } from '../../../../components/PasswordField';
 
 const BasicBox = () => {
   const [exType, setExType] = useState('');

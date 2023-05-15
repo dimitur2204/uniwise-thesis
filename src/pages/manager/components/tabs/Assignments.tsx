@@ -19,10 +19,10 @@ import {
   VisibilityOutlined,
 } from '@mui/icons-material';
 import { common, orange } from '@mui/material/colors';
-import { CARD_BORDER } from '../../../theme';
-import { theme } from '../../../theme';
+import { CARD_BORDER } from '../../../../theme';
+import { theme } from '../../../../theme';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
-import { ActionCard } from './ActionCard';
+import { ActionCard } from '../ActionCard';
 
 export type AssignmentCardProps = {
   title: string;

@@ -1,11 +1,12 @@
-import { Box, Button, Card, Chip, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
+import { Card, Tab, Tabs } from '@mui/material';
 import { Title } from './components/Title';
 import { useState } from 'react';
 import { TabPanel } from './components/TabPanel';
-import { Basic } from './components/Basic';
+import { Basic } from './components/tabs/Basic';
+import { Assignments } from './components/tabs/Assignments';
+import { Associates } from './components/tabs/Associates';
 import flowLock from '../../assets/flow-type.svg';
 import { Participants } from './components/Participants';
-import { Assignments } from './components/Assignments';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -88,7 +89,7 @@ export const Manager = () => {
         <Assignments />
       </TabPanel>
       <TabPanel value={ActiveTab.ASSOCIATES} activeTab={activeTab}>
-        Item Three
+        <Associates />
       </TabPanel>
       <TabPanel value={ActiveTab.ROOMS} activeTab={activeTab}>
         Item Four
