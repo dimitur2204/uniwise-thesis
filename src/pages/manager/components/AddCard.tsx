@@ -29,6 +29,7 @@ export const AddCard: React.FC<AddCardProps> = ({
           <Icon
             sx={{
               fontSize: 50,
+              mr: 1,
             }}
           />
           <Stack>
