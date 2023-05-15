@@ -2,7 +2,6 @@ import flowMulti from '../../assets/images/flowMulti.svg';
 import { IconButton } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MessageIcon from '@mui/icons-material/Message';
-import SettingsIcon from '@mui/icons-material/Settings';
 import DescriptionIcon from '@mui/icons-material/Description';
 import CountDownTimer from './components/CountdownTimer';
 import { ExitButton, SubmitButton } from './components/ExitAndSubmitButtons';
@@ -12,6 +11,7 @@ import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAns
 import { useState, useEffect } from 'react';
 import questionsData from './data/Quiz.json';
 import Overview from './components/Overview/Overview';
+import { SettingModal } from './components/SettingsModal/SettingsModal';
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;
@@ -24,7 +24,6 @@ export default function AssignmentPage() {
   );
   const [showOverview, setShowOverview] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -64,8 +63,8 @@ export default function AssignmentPage() {
         qaDiv.classList.add('fade-in');
         setTimeout(() => {
           qaDiv.classList.remove('fade-in');
-        }, 500);
-      }, 500);
+        }, 300);
+      }, 300);
     }
   };
 
@@ -79,8 +78,8 @@ export default function AssignmentPage() {
         qaDiv.classList.add('fade-in');
         setTimeout(() => {
           qaDiv.classList.remove('fade-in');
-        }, 500);
-      }, 500);
+        }, 300);
+      }, 300);
     }
   };
 
@@ -98,21 +97,7 @@ export default function AssignmentPage() {
         </div>
 
         <div className="right">
-          <IconButton
-            aria-label="settings"
-            size="large"
-            className="active"
-            sx={{
-              backgroundColor: '#A3ACA4',
-              borderRadius: '4px',
-              '&:hover': {
-                backgroundColor: '#8F9E91',
-                color: 'white',
-              },
-            }}
-          >
-            <SettingsIcon fontSize="large" />
-          </IconButton>
+          <SettingModal></SettingModal>
 
           <IconButton
             aria-label="message"
@@ -192,7 +177,6 @@ export default function AssignmentPage() {
                 handlePreviousQuestion={handlePreviousQuestion}
                 handleOptionSelect={handleOptionSelect}
                 selectedOptionIndices={selectedOptionIndices}
-                slideDirection={slideDirection}
               />
             </>
           )}

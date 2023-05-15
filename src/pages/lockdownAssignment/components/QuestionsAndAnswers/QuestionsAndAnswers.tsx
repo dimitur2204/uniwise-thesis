@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import questionsData from '../../data/Quiz.json';
 import { Radio } from 'semantic-ui-react';
-import './QuestionAndAnswers.css';
 import { WfButton } from '@uniwise/flow-ui-react';
-import Overview from '../Overview/Overview';
-import OverviewImg from '../../../../assets/images/overview.png';
-import { IconButton } from '@mui/material';
+import './QuestionAndAnswers.css';
 
 interface Props {
   currentQuestionIndex: number;
@@ -13,7 +10,6 @@ interface Props {
   handlePreviousQuestion?: () => void;
   handleOptionSelect: (index: number) => void;
   selectedOptionIndices: (number | null)[];
-  slideDirection: "left" | "right" | undefined
 }
 
 const QuestionAndAnswers: React.FC<Props> = ({
@@ -21,8 +17,7 @@ const QuestionAndAnswers: React.FC<Props> = ({
   handleNextQuestion,
   handlePreviousQuestion,
   handleOptionSelect,
-  selectedOptionIndices,
-  slideDirection
+  selectedOptionIndices
 }) => {
   
   const currentQuestion = questionsData.questions[currentQuestionIndex];

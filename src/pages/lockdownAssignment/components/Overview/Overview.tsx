@@ -30,7 +30,19 @@ const Overview: React.FC<Props> = ({
   const [showUnattempted, setShowUnattempted] = useState(false);
 
   const handleQuestionClick = (index: number) => {
-    setCurrentQuestionIndex(index);
+    const qaDiv = document.querySelector('.question-and-answers');
+    if (qaDiv) {
+      qaDiv.classList.add('fade-out');
+      setTimeout(() => {
+        setCurrentQuestionIndex(index);
+        qaDiv.classList.remove('fade-out');
+        qaDiv.classList.add('fade-in');
+        setTimeout(() => {
+          qaDiv.classList.remove('fade-in');
+        }, 300);
+      }, 300);
+    }
+    
   };
 
   const getFilteredQuestionIds = () => {

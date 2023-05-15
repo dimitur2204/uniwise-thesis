@@ -31,9 +31,6 @@ export const ToolbarIcon = styled(IconButton)({
 export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isFlagged }) => {
   return (
     <>
-      {/* <ToolbarIcon className="toolbarIcon">
-        <img src={Flag} alt="flag" />
-      </ToolbarIcon> */}
       <ToolbarIcon className="toolbarIcon" onClick={handleFlag}>{isFlagged ? <img src={FlagGreen} alt="flagGreen" /> : <img src={Flag} alt="flaflaggGreen" />}</ToolbarIcon>
       <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview}>
         <img src={Overview} alt="overview" />
