@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import questionsData from './data/Quiz.json';
 import Overview from './components/Overview/Overview';
 import { SettingModal } from './components/SettingsModal/SettingsModal';
+import { SubmitModal } from './components/SubmissionModal/SubmissionModal';
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;
@@ -153,7 +154,7 @@ export default function AssignmentPage() {
             <ExitButton size="large" onClick={() => console.log(showOverview)}>
               Exit
             </ExitButton>
-            <SubmitButton>Submit</SubmitButton>
+            <SubmitModal selectedOptionIndices={selectedOptionIndices}/>
           </div>
         </div>
         <div className="whiteBox">
