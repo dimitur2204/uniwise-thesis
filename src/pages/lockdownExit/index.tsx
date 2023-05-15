@@ -13,7 +13,7 @@ export const LockdownExit = () => {
         styles={{ overlayStyle: { backgroundColor:'#A9ABAF', opacity: '1' } }}
       >
         <WfModal.Title>Exit the flow</WfModal.Title>
-        <WfModal.Content style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <WfModal.Content style={{ display: 'flex', justifyContent: 'space-between' }}>
           <img src={personUrl} alt="person" style={{ width: '30%' }} />
           <div className="content">
             <WfModal.Description>
