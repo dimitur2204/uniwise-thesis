@@ -9,11 +9,20 @@ import {
   Chip,
   darken,
 } from '@mui/material';
-import { ContentCopy, Edit, Settings, Visibility } from '@mui/icons-material';
+import {
+  ContentCopy,
+  Edit,
+  FileOpen,
+  LinkRounded,
+  Settings,
+  Visibility,
+  VisibilityOutlined,
+} from '@mui/icons-material';
 import { common, orange } from '@mui/material/colors';
 import { CARD_BORDER } from '../../../theme';
 import { theme } from '../../../theme';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
+import { ActionCard } from './ActionCard';
 
 export type AssignmentCardProps = {
   title: string;
@@ -166,6 +175,120 @@ export const Assignments = () => {
           </Grid2>
         </Grid2>
       </Stack>
+      <Grid2 container spacing={3} px={5} py={4}>
+        <Grid2 xs={12} md={6}>
+          <ActionCard title="Supporting material for participants" hideButtons>
+            <Typography variant="body2">
+              You can upload additional materials that will only be avaliable to the participants
+              here
+            </Typography>
+            <Typography mt={5}>Files</Typography>
+            <Grid2 container spacing={2} mt={1}>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  A very long title here of a file...
+                </Button>
+              </Grid2>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  Biology test template.pdf
+                </Button>
+              </Grid2>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  Biology test answers.pdf
+                </Button>
+              </Grid2>
+            </Grid2>
+            <Typography mt={5}>Links</Typography>
+            <Stack
+              gap={2}
+              direction="row"
+              mt={2}
+              justifyContent={'flex-start'}
+              alignItems={'flex-start'}
+            >
+              <Button startIcon={<LinkRounded />} color="secondary" variant="contained">
+                Biology book
+              </Button>
+              <Button startIcon={<LinkRounded />} color="secondary" variant="contained">
+                Lectures video playlist
+              </Button>
+            </Stack>
+          </ActionCard>
+        </Grid2>
+        <Grid2 xs={12} md={6}>
+          <ActionCard title="Supporting material for everyone" hideButtons>
+            <Typography variant="body2">
+              You can upload additional materials that will only be avaliable to the participants
+              here
+            </Typography>
+            <Typography mt={5}>Files</Typography>
+            <Grid2 container spacing={2} mt={1}>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  A very long title here of a file...
+                </Button>
+              </Grid2>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  Biology test template.pdf
+                </Button>
+              </Grid2>
+              <Grid2 xs={12} md={6}>
+                <Button
+                  startIcon={<FileOpen />}
+                  endIcon={<VisibilityOutlined />}
+                  color="secondary"
+                  variant="contained"
+                >
+                  Biology test answers.pdf
+                </Button>
+              </Grid2>
+            </Grid2>
+            <Typography mt={5}>Links</Typography>
+            <Stack
+              gap={2}
+              direction="row"
+              mt={2}
+              justifyContent={'flex-start'}
+              alignItems={'flex-start'}
+            >
+              <Button startIcon={<LinkRounded />} color="secondary" variant="contained">
+                Biology book
+              </Button>
+              <Button startIcon={<LinkRounded />} color="secondary" variant="contained">
+                Lectures video playlist
+              </Button>
+            </Stack>
+          </ActionCard>
+        </Grid2>
+      </Grid2>
     </Card>
   );
 };
