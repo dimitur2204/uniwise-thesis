@@ -1,5 +1,6 @@
 import { Message, Settings } from '@mui/icons-material';
-import { Box, Button, ButtonGroup, Card, CardProps, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Card, CardProps, Stack, Typography } from '@mui/material';
+import FlowMenu from './FlowMenu';
 
 interface TitleProps extends CardProps {
   title: string;
@@ -28,14 +29,17 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
           <Typography variant="body2">{description}</Typography>
         </Box>
       </Box>
-      <ButtonGroup>
-        <Button variant="contained" color="secondary" startIcon={<Settings />}>
-          Settings
-        </Button>
-        <Button variant="contained" color="secondary" startIcon={<Message />}>
-          Messages
-        </Button>
-      </ButtonGroup>
+      <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
+        <ButtonGroup>
+          <Button variant="contained" color="secondary" startIcon={<Settings />}>
+            Settings
+          </Button>
+          <Button variant="contained" color="secondary" startIcon={<Message />}>
+            Messages
+          </Button>
+        </ButtonGroup>
+        <FlowMenu />
+      </Stack>
     </Card>
   );
 };
