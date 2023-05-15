@@ -1,9 +1,10 @@
-import { WfModal } from '../WfModal/WfModal';
-import personUrl from '../../../../assets/landing-person.svg';
-import { WfLinkButton } from '../../../../components/LinkButton';
 import { useState } from 'react';
 import { Checkbox, WfButton } from '@uniwise/flow-ui-react';
+import personUrl from '../../../../assets/landing-person.svg';
+import { WfModal } from '../WfModal/WfModal';
+import { WfLinkButton } from '../../../../components/LinkButton';
 import { ExitButton } from '../ExitAndSubmitButtons';
+
 
 export const ExitModal = () => {
   const [checked, setChecked] = useState(false);

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { IconButton } from "@mui/material";
-import "./StickyNote.css";
+import { Tooltip } from "@uniwise/flow-ui-react";
 import { ToolbarIcon } from "../Toolbar/Toolbar";
-import StickyAdd from "../../../../assets/images/addNote.png"
-import StickyRemove from "../../../../assets/images/hideNote.png"
-import Trash from "../../../../assets/images/trash.png"
-import Minimize from "../../../../assets/images/minimize.png"
-import SmallNote from "../../../../assets/images/smallNote.png"
+import StickyAdd from "../../../../assets/images/addNote.png";
+import StickyRemove from "../../../../assets/images/hideNote.png";
+import Trash from "../../../../assets/images/trash.png";
+import Minimize from "../../../../assets/images/minimize.png";
+import SmallNote from "../../../../assets/images/smallNote.png";
+import "./StickyNote.css";
+
 
 interface StickyNoteProps {
   onAddNote?: () => void;
@@ -67,8 +69,12 @@ const StickyNote: React.FC<StickyNoteProps> = ({ onAddNote, onHideNotes, classNa
 
   return (
     <>
+    <Tooltip text={'Add sticky notes'}>
         <ToolbarIcon className={className} onClick={()=>{ handleAddNote(), handleShowAllNotes() }}><img src={StickyAdd} alt='StickyAdd' /></ToolbarIcon>
+    </Tooltip>
+    <Tooltip text={'Hide sticky Notes'}>
         <ToolbarIcon className={className} onClick={isHidden ? handleShowAllNotes : handleHideNotes}><img src={StickyRemove} alt='StickyRemove' /></ToolbarIcon>
+    </Tooltip>
       {!isHidden &&
         notes.map((note) => (
           <div

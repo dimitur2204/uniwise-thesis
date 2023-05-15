@@ -1,15 +1,16 @@
+import { useState } from 'react';
 import { WfModal } from '../lockdownAssignment/components/WfModal/WfModal';
+import { LinkButton } from '../../components/LinkButton';
 import personUrl from '../../assets/landing-person.svg';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { LinkButton } from '../../components/LinkButton';
 import './lockdownPassword.css';
+
 
 export const LockdownPassword = () => {
   const [showPassword, setShowPassword] = useState(false);

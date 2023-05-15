@@ -1,6 +1,6 @@
 import { WfModal } from '../lockdownAssignment/components/WfModal/WfModal';
-import personUrl from '../../assets/landing-person.svg';
 import { LinkButton } from '../../components/LinkButton';
+import personUrl from '../../assets/landing-person.svg';
 import "../lockdownSubmitExit/lockdownSubmit.css"
 
 export const LockdownExit = () => {

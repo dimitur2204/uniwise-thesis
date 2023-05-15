@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import questionsData from '../../data/Quiz.json';
-import { Radio } from 'semantic-ui-react';
+import React from 'react';
 import { WfButton } from '@uniwise/flow-ui-react';
-import './QuestionAndAnswers.css';
+import { Radio } from 'semantic-ui-react';
+import questionsData from '../../data/Quiz.json';
 import { SubmitModal } from '../SubmissionModal/SubmissionModal';
+import './QuestionAndAnswers.css';
 
 interface Props {
   currentQuestionIndex: number;

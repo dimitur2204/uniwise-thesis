@@ -1,19 +1,19 @@
-import flowMulti from '../../assets/images/flowMulti.svg';
+import { useState, useEffect } from 'react';
 import { IconButton } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MessageIcon from '@mui/icons-material/Message';
 import DescriptionIcon from '@mui/icons-material/Description';
-import CountDownTimer from './components/CountdownTimer';
-import { ExitButton, SubmitButton } from './components/ExitAndSubmitButtons';
-import { Toolbar } from './components/Toolbar/Toolbar';
 import { Loader, Progress } from 'semantic-ui-react';
-import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers';
-import { useState, useEffect } from 'react';
-import questionsData from './data/Quiz.json';
-import Overview from './components/Overview/Overview';
+import { Toolbar } from './components/Toolbar/Toolbar';
 import { SettingModal } from './components/SettingsModal/SettingsModal';
 import { SubmitModal } from './components/SubmissionModal/SubmissionModal';
 import { ExitModal } from './components/ExitModal/ExitModal';
+import QuestionAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers';
+import Overview from './components/Overview/Overview';
+import CountDownTimer from './components/CountdownTimer';
+import flowMulti from '../../assets/images/flowMulti.svg';
+import questionsData from './data/Quiz.json';
+
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;

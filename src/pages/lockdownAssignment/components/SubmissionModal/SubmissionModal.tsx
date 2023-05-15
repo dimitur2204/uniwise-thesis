@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { WfModal } from '../WfModal/WfModal';
+import { Checkbox, WfButton } from '@uniwise/flow-ui-react';
 import personUrl from '../../../../assets/landing-person.svg';
 import { WfLinkButton } from '../../../../components/LinkButton';
-import { useState } from 'react';
-import { Checkbox, WfButton } from '@uniwise/flow-ui-react';
 import { SubmitButton } from '../ExitAndSubmitButtons';
 import './SubmissionModal.css';
 

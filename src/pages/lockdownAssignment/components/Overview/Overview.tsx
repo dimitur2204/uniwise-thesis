@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { IconButton } from '@mui/material';
-import './Overview.css';
-import { ToolbarIcon } from '../Toolbar/Toolbar';
-import OverviewImg from '../../../../assets/images/overview.png';
-import Flag from '../../../../assets/images/flag.png';
+import { Checkbox } from '@uniwise/flow-ui-react';
 import FlagGreen from '../../../../assets/images/flagGreen.png';
 import Close from '../../../../assets/images/close.png';
-import { Checkbox } from '@uniwise/flow-ui-react';
+
 import questionsData from '../../data/Quiz.json';
+import './Overview.css';
 
 interface Props {
   currentQuestionIndex: number;

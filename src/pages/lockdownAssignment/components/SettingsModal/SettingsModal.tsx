@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { WfModal } from '../WfModal/WfModal';
 import { IconButton } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
-import './SettingsModal.css';
 import { TabContext } from '@mui/lab';
 import { WfButton } from '@uniwise/flow-ui-react';
 import { Radio } from 'semantic-ui-react';
+import { WfModal } from '../WfModal/WfModal';
+import './SettingsModal.css';
 
 type RadioGroupOption = {
   value: string;

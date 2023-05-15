@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './Notepad.css';
-import { ToolbarIcon } from '../Toolbar/Toolbar';
 import { IconButton } from '@mui/material';
+import { ToolbarIcon } from '../Toolbar/Toolbar';
 import Notes from '../../../../assets/images/notes.png';
 import Collapse from '../../../../assets/images/reduce.png';
 import Expand from '../../../../assets/images/Expand.png';
 import Unexpand from '../../../../assets/images/unexpand.png';
 import Close from '../../../../assets/images/close.png';
 import Plus from '../../../../assets/images/plus.png';
+import './Notepad.css';
 
 interface NotepadProps {
   className: string;
