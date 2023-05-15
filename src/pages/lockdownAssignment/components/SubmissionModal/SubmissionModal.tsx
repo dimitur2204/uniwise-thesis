@@ -17,15 +17,20 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
     setChecked(!checked);
   };
 
+  const resetChange = () => {
+    setChecked(true);
+  };
+
   return (
     <>
       <WfModal
         size="small"
         trigger={
           <WfModal.Trigger>
-            <SubmitButton>Submit</SubmitButton>
+            <SubmitButton onClick={resetChange}>Submit</SubmitButton>
           </WfModal.Trigger>
         }
+        
       >
         <WfModal.Title>Submission</WfModal.Title>
         <WfModal.Content style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -57,9 +62,9 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
         </WfModal.Content>
         <WfModal.Footer>
           <WfModal.Close>
-            <WfButton content="Cancel" />
+            <WfButton content="Cancel" onClick={resetChange}/>
           </WfModal.Close>
-          <WfLinkButton to="/" content="Confirm" color="green" disabled={checked}>
+          <WfLinkButton to="/page/lockdownSubmitExit" content="Confirm" color="green" disabled={checked}>
             Confirm
           </WfLinkButton>
         </WfModal.Footer>

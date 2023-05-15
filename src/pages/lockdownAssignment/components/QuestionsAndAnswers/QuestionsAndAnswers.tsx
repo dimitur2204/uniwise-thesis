@@ -3,6 +3,7 @@ import questionsData from '../../data/Quiz.json';
 import { Radio } from 'semantic-ui-react';
 import { WfButton } from '@uniwise/flow-ui-react';
 import './QuestionAndAnswers.css';
+import { SubmitModal } from '../SubmissionModal/SubmissionModal';
 
 interface Props {
   currentQuestionIndex: number;
@@ -17,7 +18,7 @@ const QuestionAndAnswers: React.FC<Props> = ({
   handleNextQuestion,
   handlePreviousQuestion,
   handleOptionSelect,
-  selectedOptionIndices
+  selectedOptionIndices,
 }) => {
   
   const currentQuestion = questionsData.questions[currentQuestionIndex];
@@ -54,7 +55,7 @@ const QuestionAndAnswers: React.FC<Props> = ({
         {currentQuestionIndex < questionsData.questions.length - 1 && (
           <WfButton content="Next question" onClick={handleNextQuestion} color="green" />
         )}
-        {currentQuestionIndex === questionsData.questions.length - 1 && <WfButton content="Submit" color="green" />}
+        {currentQuestionIndex === questionsData.questions.length - 1 && <SubmitModal selectedOptionIndices={selectedOptionIndices}/>}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import questionsData from './data/Quiz.json';
 import Overview from './components/Overview/Overview';
 import { SettingModal } from './components/SettingsModal/SettingsModal';
 import { SubmitModal } from './components/SubmissionModal/SubmissionModal';
+import { ExitModal } from './components/ExitModal/ExitModal';
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;
@@ -84,6 +85,8 @@ export default function AssignmentPage() {
     }
   };
 
+
+
   return (
     <div className="assignmentBody">
       <div className="mainBar">
@@ -151,9 +154,7 @@ export default function AssignmentPage() {
             />
           </div>
           <div className="exitAndSubmit">
-            <ExitButton size="large" onClick={() => console.log(showOverview)}>
-              Exit
-            </ExitButton>
+            <ExitModal/>
             <SubmitModal selectedOptionIndices={selectedOptionIndices}/>
           </div>
         </div>

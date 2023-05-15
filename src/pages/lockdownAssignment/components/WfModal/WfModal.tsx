@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { CSSProperties, useLayoutEffect } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import  './WfModal.css';
 
@@ -94,6 +94,8 @@ export interface WfModalProps
     overlayStyle?: React.CSSProperties;
     contentStyle?: React.CSSProperties;
   };
+
+  className?: string;
 }
 
 const FlowDialogChildren: React.FC<WfModalProps> = React.forwardRef<

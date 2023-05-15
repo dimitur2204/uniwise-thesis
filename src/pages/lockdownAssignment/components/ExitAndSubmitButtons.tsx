@@ -32,8 +32,6 @@ export const SubmitButton = styled(Button)({
     backgroundColor: '#628010',
     color:'white',
     fontFamily: 'Signika-Bold',
-    borderBottomRightRadius: '0px',
-    borderBottomLeftRadius: '0px',
     '&:hover': {
      backgroundColor: '#3f530a',
     },
