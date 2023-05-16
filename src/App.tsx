@@ -12,38 +12,43 @@ import { LockdownPassword } from './pages/lockdownPassword/index';
 import { LockdownExit } from './pages/lockdownExit';
 import { LockdownSubmitExit } from './pages/lockdownSubmitExit';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Landing />,
+    },
+    {
+      path: '/page',
+      element: <Root />,
+      children: [
+        {
+          path: 'manager',
+          element: <Manager />,
+        },
+        {
+          path: 'lockdownPassword',
+          element: <LockdownPassword />,
+        },
+        {
+          path: 'lockdownExit',
+          element: <LockdownExit />,
+        },
+        {
+          path: 'lockdownSubmitExit',
+          element: <LockdownSubmitExit />,
+        },
+        {
+          path: 'lockdown',
+          element: <AssignmentPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: '/',
-    element: <Landing />,
+    basename: '/uniwise-thesis',
   },
-  {
-    path: '/page',
-    element: <Root />,
-    children: [
-      {
-        path: 'manager',
-        element: <Manager />,
-      },
-      {
-        path: 'lockdownPassword',
-        element: <LockdownPassword />,
-      },
-      {
-        path: 'lockdownExit',
-        element: <LockdownExit />,
-      },
-      {
-        path: 'lockdownSubmitExit',
-        element: <LockdownSubmitExit />,
-      },
-      {
-        path: 'lockdown',
-        element: <AssignmentPage />,
-      },
-    ],
-  },
-]);
+);
 
 function App() {
   return (
