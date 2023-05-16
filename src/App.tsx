@@ -27,6 +27,10 @@ const router = createBrowserRouter(
           element: <Manager />,
         },
         {
+          path: 'lockdown',
+          element: <AssignmentPage />,
+        },
+        {
           path: 'lockdownPassword',
           element: <LockdownPassword />,
         },
@@ -37,10 +41,6 @@ const router = createBrowserRouter(
         {
           path: 'lockdownSubmitExit',
           element: <LockdownSubmitExit />,
-        },
-        {
-          path: 'lockdown',
-          element: <AssignmentPage />,
         },
       ],
     },

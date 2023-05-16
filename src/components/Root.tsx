@@ -29,12 +29,8 @@ export const Root: React.FC<PropsWithChildren> = () => {
   };
   return (
     <>
-      <Header />
-      <WfPageTitleRoot licenseName={''} />
       {/*  <MainHeader labelBundle={labelBundle} JWT={get()} selectedRole={SelectedRole.ADMIN} /> */}
- {/*      <Container> */}
-        <Outlet />
-{/*       </Container> */}
+      <Outlet />
       <MainFooter labelBundle={labelBundle} />
     </>
   );
