@@ -10,6 +10,10 @@ import { Participants } from './components/Participants';
 import { Container } from '../../components/Container';
 import { Header } from '../../components/Header';
 import { WfPageTitleRoot } from '@uniwise/flow-ui-react';
+import { Rooms } from './components/tabs/Rooms';
+import { Sources } from './components/tabs/Sources';
+import { Combine } from './components/tabs/Combine';
+import { Advanced } from './components/tabs/Advanced';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -98,16 +102,16 @@ export const Manager = () => {
           <Associates />
         </TabPanel>
         <TabPanel value={ActiveTab.ROOMS} activeTab={activeTab}>
-          Item Four
+          <Rooms />
         </TabPanel>
         <TabPanel value={ActiveTab.SOURCES} activeTab={activeTab}>
-          Item Five
+          <Sources />
         </TabPanel>
         <TabPanel value={ActiveTab.COMBINE} activeTab={activeTab}>
-          Item Six
+          <Combine />
         </TabPanel>
         <TabPanel value={ActiveTab.ADVANCED} activeTab={activeTab}>
-          Item Seven
+          <Advanced />
         </TabPanel>
         <Participants />
       </Container>
