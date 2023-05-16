@@ -44,8 +44,8 @@ export const SettingModal = () => {
     <>
       <WfModal
         trigger={
-          <WfModal.Trigger>
-            <Tooltip text="Settings">
+          <Tooltip text="Settings">
+            <WfModal.Trigger>
               <IconButton
                 aria-label="settings"
                 size="large"
@@ -61,8 +61,8 @@ export const SettingModal = () => {
               >
                 <SettingsIcon fontSize="large" />
               </IconButton>
-            </Tooltip>
-          </WfModal.Trigger>
+            </WfModal.Trigger>
+          </Tooltip>
         }
       >
         <WfModal.Title>
