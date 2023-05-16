@@ -10,6 +10,7 @@ export const Navbar = () => {
       justifyContent="space-between"
       sx={{
         backgroundColor: common.white,
+        py: 2,
       }}
     >
       <Box display="flex" alignItems="center" gap={theme.spacing(3)}>

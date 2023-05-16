@@ -7,6 +7,7 @@ import { Assignments } from './components/tabs/Assignments';
 import { Associates } from './components/tabs/Associates';
 import flowLock from '../../assets/flow-type.svg';
 import { Participants } from './components/Participants';
+import { Container } from '../../components/Container';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -28,7 +29,7 @@ function a11yProps(value: ActiveTab) {
 export const Manager = () => {
   const [activeTab, setActiveTab] = useState(ActiveTab.BASIC);
   return (
-    <div>
+    <Container>
       {/* <Button variant="contained" color="primary">
         Hello World
       </Button>
@@ -104,6 +105,6 @@ export const Manager = () => {
         Item Seven
       </TabPanel>
       <Participants />
-    </div>
+    </Container>
   );
 };
