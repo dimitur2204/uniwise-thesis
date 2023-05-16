@@ -8,6 +8,7 @@ import {
   IconButton,
   Chip,
   darken,
+  Unstable_Grid2 as Grid2,
 } from '@mui/material';
 import {
   ContentCopy,
@@ -21,7 +22,6 @@ import {
 import { common, orange } from '@mui/material/colors';
 import { CARD_BORDER } from '../../../../theme';
 import { theme } from '../../../../theme';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import { ActionCard } from '../ActionCard';
 
 export type AssignmentCardProps = {
