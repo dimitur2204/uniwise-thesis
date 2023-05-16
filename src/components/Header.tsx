@@ -34,7 +34,7 @@ const HeaderTabs = styled(Tabs)(() => ({
 }));
 
 export const Header = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(5);
   return (
     <Box
       sx={{
@@ -107,8 +107,8 @@ export const Header = () => {
             <Button variant="contained" color="secondary" startIcon={<Create />}>
               Create
             </Button>
-            <Button variant="contained" color="secondary" startIcon={<Menu />}>
-              Combine
+            <Button aria-label="Combine" variant="contained" color="secondary">
+              <Menu />
             </Button>
           </ButtonGroup>
         </Stack>

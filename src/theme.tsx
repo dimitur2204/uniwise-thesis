@@ -1,7 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 import { green, common, grey } from '@mui/material/colors';
 
-const MAIN_GREEN = '#517709';
+export const MAIN_GREEN = '#517709';
+export const CARD_BORDER = 'rgba(0, 0, 0, 0.12)';
 export const theme = createTheme({
   palette: {
     primary: {
@@ -72,6 +73,23 @@ export const theme = createTheme({
           '&:hover:not(.Mui-disabled):before': {
             borderBottomColor: grey[200],
           },
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        body2: {
+          color: grey[700],
+          fontSize: '14px',
+          lineHeight: '20px',
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          minHeight: '55px',
         },
       },
     },
