@@ -1,0 +1,77 @@
+.question-and-answers {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.question-and-answers.fade-out {
+  opacity: 0;
+}
+
+.question-and-answers.fade-in {
+  opacity: 1;
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+.optionContainer {
+  border-style: solid;
+  border-color: #797c81;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.option p {
+  margin: 0;
+}
+
+.selectedOption {
+  background-color: #00ff00;
+}
+
+.optionSelected {
+  width: 40px;
+  background-color: green;
+  height: 100%;
+}
+
+.box {
+    width: 20px;
+    height: 50px;
+    background-color: #628010;
+  }
+
+  .navigationButtons{
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }

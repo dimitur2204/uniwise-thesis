@@ -1,14 +1,21 @@
+import React from 'react';
+import styled from '@emotion/styled';
 import { IconButton } from '@mui/material';
+import { Tooltip } from '@uniwise/flow-ui-react';
 import Flag from '../../../../assets/images/flag.png';
+import FlagGreen from '../../../../assets/images/flagGreen.png';
 import Overview from '../../../../assets/images/overview.png';
-import Notes from '../../../../assets/images/notes.png';
 import Write from '../../../../assets/images/write.png';
 import WriteHide from '../../../../assets/images/hideWrite.png';
-import styled from '@emotion/styled';
-
-import React, { useState } from 'react';
 import StickyNote from '../StickyNote/StickyNote';
 import Notepad from '../Notepad/Notepad';
+
+
+interface Props {
+  handleToggleOverview: () => void;
+  handleFlag: () => void;
+  isFlagged: boolean | null;
+}
 
 export const ToolbarIcon = styled(IconButton)({
   '&:hover': {
@@ -19,29 +26,39 @@ export const ToolbarIcon = styled(IconButton)({
     backgroundColor: '#8D8D8D',
     borderRadius: '0px',
   },
-  '&:focus': {
-    backgroundColor: '#8D8D8D',
-    borderRadius: '0px',
-  },
 });
 
-export const Toolbar = () => {
+export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isFlagged }) => {
   return (
     <>
-      <ToolbarIcon className="toolbarIcon">
-        <img src={Flag} alt="flag" />
-      </ToolbarIcon>
-      <ToolbarIcon className="toolbarIcon">
-        <img src={Overview} alt="overview" />
-      </ToolbarIcon>
-      <Notepad className="toolbarIcon" />
+      <Tooltip text={'Flag'}>
+        <ToolbarIcon className="toolbarIcon" onClick={handleFlag}>
+          {isFlagged ? (
+            <img src={FlagGreen} alt="flagGreen" />
+          ) : (
+            <img src={Flag} alt="flaflaggGreen" />
+          )}
+        </ToolbarIcon>
+      </Tooltip>
+      <Tooltip text={'Overview'}>
+        <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview}>
+          <img src={Overview} alt="overview" />
+        </ToolbarIcon>
+      </Tooltip>
+      <Tooltip text={'Notepad'}>
+        <Notepad className="toolbarIcon" />
+      </Tooltip>
       <StickyNote className="toolbarIcon" />
+      <Tooltip text={'Write/Draw'}>
       <ToolbarIcon className="toolbarIcon">
         <img src={Write} alt="WriteHide" />
       </ToolbarIcon>
+      </Tooltip>
+      <Tooltip text={'Hide Write/Draw'}>
       <ToolbarIcon className="toolbarIcon">
         <img src={WriteHide} alt="WriteHide" />
       </ToolbarIcon>
+      </Tooltip>
     </>
   );
 };

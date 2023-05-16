@@ -1,45 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 
-interface ICountdown {
-    hours: number;
-    minutes: number;
-    seconds: number;
+interface CountdownTimerProps {
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
-const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 60 }: ICountdown) => {
-    
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ hours, minutes, seconds }) => {
+  const [remainingTime, setRemainingTime] = useState<number>(0);
 
-    const [time, setTime] = React.useState<ICountdown>({hours, minutes, seconds});
-    
+  useEffect(() => {
+    const totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
-    const tick = () => {
-   
-        if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) 
-            reset();
-        else if (time.hours === 0 && time.seconds === 0) {
-            setTime({hours: time.hours - 1, minutes: 59, seconds: 59});
-        } else if (time.seconds === 0) {
-            setTime({hours: time.hours, minutes: time.minutes - 1, seconds: 59});
-        } else {
-            setTime({hours: time.hours, minutes: time.minutes, seconds: time.seconds - 1});
+    const timer = setInterval(() => {
+      setRemainingTime((prevRemainingTime) => {
+        if (prevRemainingTime === 0) {
+          clearInterval(timer); // Stop the timer when it reaches zero
+          return 0;
         }
+        return prevRemainingTime - 1;
+      });
+    }, 1000);
+
+    setRemainingTime(totalSeconds);
+
+    return () => {
+      clearInterval(timer);
     };
+  }, [hours, minutes, seconds]);
 
-    const reset = () => setTime({hours: time.hours, minutes: time.minutes, seconds: time.seconds});
+  const formatTime = (time: number): string => {
+    return time.toString().padStart(2, '0');
+  };
 
-    useEffect(() => {
-        const timerId = setInterval(() => tick(), 1000);
-        return () => clearInterval(timerId);
-    });
+  const formattedHours = formatTime(Math.floor(remainingTime / 3600));
+  const formattedMinutes = formatTime(Math.floor((remainingTime % 3600) / 60));
+  const formattedSeconds = formatTime(remainingTime % 60);
 
-    
-    return (
-        <div>
-            <p>{`${time.hours.toString().padStart(2, '0')}:${time.minutes
-            .toString()
-            .padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}</p> 
-        </div>
-    );
-}
+  return (
+    <div>
+      <span>{formattedHours}:</span>
+      <span>{formattedMinutes}:</span>
+      <span>{formattedSeconds}</span>
+    </div>
+  );
+};
 
-export default CountDownTimer;
+export default CountdownTimer;

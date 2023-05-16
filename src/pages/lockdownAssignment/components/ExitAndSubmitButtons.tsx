@@ -1,7 +1,5 @@
 import { styled } from '@mui/material/styles';
-import Button, { ButtonProps } from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { purple } from '@mui/material/colors';
+import Button from '@mui/material/Button';
 
 export const ExitButton = styled(Button)({
   boxShadow: 'none',
@@ -32,8 +30,6 @@ export const SubmitButton = styled(Button)({
     backgroundColor: '#628010',
     color:'white',
     fontFamily: 'Signika-Bold',
-    borderBottomRightRadius: '0px',
-    borderBottomLeftRadius: '0px',
     '&:hover': {
      backgroundColor: '#3f530a',
     },

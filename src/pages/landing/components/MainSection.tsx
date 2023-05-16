@@ -37,7 +37,7 @@ export const MainSection = () => {
             <LinkButton variant="contained" color="secondary" to="/page/manager" size="large">
               Manager
             </LinkButton>
-            <LinkButton variant="contained" to="/page/lockdown" size="large">
+            <LinkButton variant="contained" to="/page/lockdownPassword" size="large">
               Lockdown
             </LinkButton>
           </Box>

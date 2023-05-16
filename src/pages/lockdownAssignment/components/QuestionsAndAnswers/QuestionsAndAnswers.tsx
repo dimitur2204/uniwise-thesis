@@ -1,34 +1,64 @@
 import React from 'react';
+import { WfButton } from '@uniwise/flow-ui-react';
+import { Radio } from 'semantic-ui-react';
 import questionsData from '../../data/Quiz.json';
+import { SubmitModal } from '../SubmissionModal/SubmissionModal';
+import './QuestionAndAnswers.css';
 
-interface State {
+interface Props {
   currentQuestionIndex: number;
+  handleNextQuestion?: () => void;
+  handlePreviousQuestion?: () => void;
+  handleOptionSelect: (index: number) => void;
+  selectedOptionIndices: (number | null)[];
 }
 
-class QuestionAndAnswers extends React.Component<{}, State> {
-  state: State = {
-    currentQuestionIndex: 0,
-  };
-
-  render() {
-    const currentQuestion = questionsData.questions[this.state.currentQuestionIndex];
-
-    return (
-      <div>
-        <h2>{currentQuestion.question}</h2>
-        <ul>
-          {currentQuestion.options.map((option, index) => (
-            <li key={index}>{option}</li>
-          ))}
-        </ul>
-        <button onClick={this.handleNextQuestion}>Next question</button>
-      </div>
-    );
+const QuestionAndAnswers: React.FC<Props> = ({
+  currentQuestionIndex,
+  handleNextQuestion,
+  handlePreviousQuestion,
+  handleOptionSelect,
+  selectedOptionIndices,
+}) => {
+  
+  const currentQuestion = questionsData.questions[currentQuestionIndex];
+  if (!currentQuestion) {
+    return <div>No questions found</div>;
   }
 
-  handleNextQuestion = () => {
-    this.setState((prevState) => ({ currentQuestionIndex: prevState.currentQuestionIndex + 1 }));
-  };
-}
+  return (
+    <div className="question-and-answers">
+      <h2>{currentQuestion.question}</h2>
+
+      {currentQuestion.options.map((option, index) => (
+        <div className={"optionContainer"} key={index}>
+          <div
+            className="box"
+            style={{
+              display: selectedOptionIndices[currentQuestionIndex] === index ? 'block' : 'none',
+            }}
+          />
+          <div className="option" onClick={() => handleOptionSelect(index)}>
+            <p>{option}</p>
+            <Radio
+              name={`radioGroup-${currentQuestionIndex}`}
+              checked={selectedOptionIndices[currentQuestionIndex] === index}
+            />
+          </div>
+        </div>
+      ))}
+
+      <div className='navigationButtons'>
+        {currentQuestionIndex > 0 && (
+          <WfButton content="Previous question" onClick={handlePreviousQuestion} />
+        )}
+        {currentQuestionIndex < questionsData.questions.length - 1 && (
+          <WfButton content="Next question" onClick={handleNextQuestion} color="green" />
+        )}
+        {currentQuestionIndex === questionsData.questions.length - 1 && <SubmitModal selectedOptionIndices={selectedOptionIndices}/>}
+      </div>
+    </div>
+  );
+};
 
 export default QuestionAndAnswers;

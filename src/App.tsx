@@ -8,6 +8,9 @@ import { Landing } from './pages/landing';
 import { Manager } from './pages/manager';
 import { Root } from './components/Root';
 import AssignmentPage from './pages/lockdownAssignment';
+import { LockdownPassword } from './pages/lockdownPassword/index';
+import { LockdownExit } from './pages/lockdownExit';
+import { LockdownSubmitExit } from './pages/lockdownSubmitExit';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: 'manager',
         element: <Manager />,
+      },
+      {
+        path: 'lockdownPassword',
+        element: <LockdownPassword />,
+      },
+      {
+        path: 'lockdownExit',
+        element: <LockdownExit />,
+      },
+      {
+        path: 'lockdownSubmitExit',
+        element: <LockdownSubmitExit />,
       },
       {
         path: 'lockdown',
