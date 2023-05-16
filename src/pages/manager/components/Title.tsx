@@ -1,6 +1,8 @@
 import { Message, Settings } from '@mui/icons-material';
 import { Box, Button, ButtonGroup, Card, CardProps, Stack, Typography } from '@mui/material';
 import FlowMenu from './FlowMenu';
+import { useContext } from 'react';
+import { ExternalPageModalContext } from '../../../components/ExternalPageModal';
 
 interface TitleProps extends CardProps {
   title: string;
@@ -8,6 +10,7 @@ interface TitleProps extends CardProps {
   icon: string;
 }
 export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...props }) => {
+  const { setOpen } = useContext(ExternalPageModalContext);
   return (
     <Card
       variant="outlined"
@@ -31,10 +34,24 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
       </Box>
       <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
         <ButtonGroup>
-          <Button variant="contained" color="secondary" startIcon={<Settings />}>
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<Settings />}
+            onClick={() => {
+              setOpen?.(true);
+            }}
+          >
             Settings
           </Button>
-          <Button variant="contained" color="secondary" startIcon={<Message />}>
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<Message />}
+            onClick={() => {
+              setOpen?.(true);
+            }}
+          >
             Messages
           </Button>
         </ButtonGroup>

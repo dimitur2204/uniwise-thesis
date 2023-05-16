@@ -11,6 +11,7 @@ import AssignmentPage from './pages/lockdownAssignment';
 import { LockdownPassword } from './pages/lockdownPassword/index';
 import { LockdownExit } from './pages/lockdownExit';
 import { LockdownSubmitExit } from './pages/lockdownSubmitExit';
+import { ExternalPageModalProvider } from './components/ExternalPageModal';
 
 const router = createBrowserRouter(
   [
@@ -52,11 +53,13 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <RouterProvider router={router} />
-      </LocalizationProvider>
-    </ThemeProvider>
+    <ExternalPageModalProvider>
+      <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <RouterProvider router={router} />
+        </LocalizationProvider>
+      </ThemeProvider>
+    </ExternalPageModalProvider>
   );
 }
 

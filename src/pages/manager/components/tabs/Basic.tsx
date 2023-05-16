@@ -14,8 +14,9 @@ import { DateTimePicker } from '@mui/x-date-pickers';
 import { ActionCard } from '../ActionCard';
 import flowLockIcon from '../../../../assets/flow-type.svg';
 import { CARD_BORDER } from '../../../../theme';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { PasswordField } from '../../../../components/PasswordField';
+import { ExternalPageModalContext } from '../../../../components/ExternalPageModal';
 
 const BasicBox = () => {
   const [exType, setExType] = useState('');
@@ -256,6 +257,7 @@ const DetailsBox = () => {
 };
 
 const MarkingAndReviewBox = () => {
+  const { setOpen } = useContext(ExternalPageModalContext);
   return (
     <ActionCard
       title="Marking and review"
@@ -281,7 +283,13 @@ const MarkingAndReviewBox = () => {
             <Chip label="1 External assessors" />
           </Stack>
         </Stack>
-        <Button variant="contained" color="secondary">
+        <Button
+          onClick={() => {
+            setOpen?.(true);
+          }}
+          variant="contained"
+          color="secondary"
+        >
           Add assessor
         </Button>
       </Stack>
@@ -302,7 +310,13 @@ const MarkingAndReviewBox = () => {
             <Chip label="1 Reviewers" />
           </Stack>
         </Stack>
-        <Button variant="contained" color="secondary">
+        <Button
+          onClick={() => {
+            setOpen?.(true);
+          }}
+          variant="contained"
+          color="secondary"
+        >
           Add reviewer
         </Button>
       </Stack>
@@ -323,7 +337,13 @@ const MarkingAndReviewBox = () => {
             <Chip label="0 Rubrics" />
           </Stack>
         </Stack>
-        <Button variant="contained" color="secondary">
+        <Button
+          onClick={() => {
+            setOpen?.(true);
+          }}
+          variant="contained"
+          color="secondary"
+        >
           Add rubric
         </Button>
       </Stack>
@@ -344,7 +364,13 @@ const MarkingAndReviewBox = () => {
             Additional material for reviewers and assessors
           </Typography>
         </Stack>
-        <Button variant="contained" color="secondary">
+        <Button
+          onClick={() => {
+            setOpen?.(true);
+          }}
+          variant="contained"
+          color="secondary"
+        >
           Additonal
         </Button>
       </Stack>
