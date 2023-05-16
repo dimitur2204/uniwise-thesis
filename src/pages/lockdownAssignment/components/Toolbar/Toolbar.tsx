@@ -10,7 +10,6 @@ import WriteHide from '../../../../assets/images/hideWrite.png';
 import StickyNote from '../StickyNote/StickyNote';
 import Notepad from '../Notepad/Notepad';
 
-
 interface Props {
   handleToggleOverview: () => void;
   handleFlag: () => void;
@@ -32,7 +31,7 @@ export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isF
   return (
     <>
       <Tooltip text={'Flag'}>
-        <ToolbarIcon className="toolbarIcon" onClick={handleFlag}>
+        <ToolbarIcon className="toolbarIcon" onClick={handleFlag} aria-label="Flag">
           {isFlagged ? (
             <img src={FlagGreen} alt="flagGreen" />
           ) : (
@@ -41,23 +40,21 @@ export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isF
         </ToolbarIcon>
       </Tooltip>
       <Tooltip text={'Overview'}>
-        <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview}>
+        <ToolbarIcon className="toolbarIcon" onClick={handleToggleOverview} aria-label="Overview">
           <img src={Overview} alt="overview" />
         </ToolbarIcon>
       </Tooltip>
-      <Tooltip text={'Notepad'}>
-        <Notepad className="toolbarIcon" />
-      </Tooltip>
+      <Notepad className="toolbarIcon" />
       <StickyNote className="toolbarIcon" />
       <Tooltip text={'Write/Draw'}>
-      <ToolbarIcon className="toolbarIcon">
-        <img src={Write} alt="WriteHide" />
-      </ToolbarIcon>
+        <ToolbarIcon className="toolbarIcon" aria-label="Write/Draw">
+          <img src={Write} alt="WriteHide" />
+        </ToolbarIcon>
       </Tooltip>
       <Tooltip text={'Hide Write/Draw'}>
-      <ToolbarIcon className="toolbarIcon">
-        <img src={WriteHide} alt="WriteHide" />
-      </ToolbarIcon>
+        <ToolbarIcon className="toolbarIcon" aria-label="Hide write/draw">
+          <img src={WriteHide} alt="WriteHide" />
+        </ToolbarIcon>
       </Tooltip>
     </>
   );

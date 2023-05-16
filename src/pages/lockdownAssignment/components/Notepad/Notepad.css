@@ -1,154 +1,153 @@
 @font-face {
-    font-family: "Signika-Light";
-    src: url(fonts/Signika-Light.ttf) format("opentype");
-  }
+  font-family: 'Signika-Light';
+  src: url(fonts/Signika-Light.ttf) format('opentype');
+}
 
 .notepad-trigger {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #f8f9fa;
-    border-radius: 50%;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s ease-out;
-  }
-  
-  .notepad-trigger.hidden {
-    transform: translateY(100%);
-  }
-  
-  .notepad {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 500px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease-out;
-    z-index: 100;
-  }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
 
-  .notepad.collapsed{
-    height: 50px;
-  }
-  
-  .notepad.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .notepad.fullscreen {
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  
-  .notepad-topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    background-color: #e9ecef;
-    padding: 0 10px;
-    user-select: none;
-    cursor: move;
-  }
-  
-  .notepad-icon-label {
-    display: flex;
-    align-items: center;
-  }
-  
-  .notepad-label {
-    margin-left: 10px;
-    font-weight: bold;
-    font-family: "Signika-Light";
-  }
+.notepad-trigger.hidden {
+  transform: translateY(100%);
+}
 
-  .notepad-buttons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.notepad {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 500px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-out;
+  z-index: 100;
+}
 
-  .notepad-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e9ecef;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-out;
-  }
+.notepad.collapsed {
+  height: 50px;
+}
 
-  .notepad-icon-label-first{
-    height: 25px;
-  }
+.notepad.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-  .notepad-button:hover {
-    background-color: #dee2e6;
-  }
-  
-  .notepad-button:last-of-type {
-    margin-right: 0;
-  }
-  
-  .notepad-button.shrink-button {
-    transform: rotate(-90deg);
-  }
-  
-  .notepad-button.fullscreen-button {
-    margin-left: auto;
-  }
-  
-  .notepad-button.close-button {
-    margin-left: 10px;
-  }
-  
-  .notepad-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    transition: display 0.2s ease-out;
-  }
+.fullscreen {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
 
-  .notepad-body.collapsed {
-    display: none;
-  }
-  
-  .notepad-textarea {
-    flex: 1;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 10px;
-    border: none;
-    resize: none;
-  }
-  
-  .notepad-character-count {
-    align-self: flex-end;
-    margin-top: 5px;
-    font-size: 12px;
-    color: #6c757d;
-    transition: color 0.2s ease-out;
-  }
-  
-  .notepad-character-count.max-characters {
-    color: red;
-  }
-  
+.notepad-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: #e9ecef;
+  padding: 0 10px;
+  user-select: none;
+  cursor: move;
+}
+
+.notepad-icon-label {
+  display: flex;
+  align-items: center;
+}
+
+.notepad-label {
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: 'Signika-Light';
+}
+
+.notepad-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notepad-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.notepad-icon-label-first {
+  height: 25px;
+}
+
+.notepad-button:hover {
+  background-color: #dee2e6;
+}
+
+.notepad-button:last-of-type {
+  margin-right: 0;
+}
+
+.notepad-button.shrink-button {
+  transform: rotate(-90deg);
+}
+
+.notepad-button.fullscreen-button {
+  margin-left: auto;
+}
+
+.notepad-button.close-button {
+  margin-left: 10px;
+}
+
+.notepad-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: display 0.2s ease-out;
+}
+
+.notepad-body.collapsed {
+  display: none;
+}
+
+.notepad-textarea {
+  flex: 1;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  border: none;
+  resize: none;
+}
+
+.notepad-character-count {
+  align-self: flex-end;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #6c757d;
+  transition: color 0.2s ease-out;
+}
+
+.notepad-character-count.max-characters {
+  color: red;
+}

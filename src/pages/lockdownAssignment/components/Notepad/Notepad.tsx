@@ -8,6 +8,7 @@ import Unexpand from '../../../../assets/images/unexpand.png';
 import Close from '../../../../assets/images/close.png';
 import Plus from '../../../../assets/images/plus.png';
 import './Notepad.css';
+import { Tooltip } from '@uniwise/flow-ui-react';
 
 interface NotepadProps {
   className: string;
@@ -21,6 +22,7 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [text, setText] = useState('');
+  const [notepadPosition, setNotepadPosition] = useState({ top: '50%', left: '50%' });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -58,7 +60,17 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
 
   const toggleFullScreen = () => {
     setIsFullScreen((prev) => !prev);
+  
+    if (!isFullScreen && isDragging && notepadRef.current) {
+      // Calculate the new position when entering fullscreen
+      const notepadRect = notepadRef.current.getBoundingClientRect();
+      const x = (window.innerWidth - notepadRect.width) / 2;
+      const y = (window.innerHeight - notepadRect.height) / 2;
+  
+      setNotepadPosition({ top: `${y}px`, left: `${x}px` });
+    }
   };
+  
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
@@ -70,15 +82,18 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
   return (
     <>
       <div onClick={toggleOpen}>
-        <ToolbarIcon className={className}>
-          <img src={Notes} alt="notes" />
-        </ToolbarIcon>
+        <Tooltip text="Notepad">
+          <ToolbarIcon className={className}>
+            <img src={Notes} alt="notes" />
+          </ToolbarIcon>
+        </Tooltip>
       </div>
       <div
         className={`notepad ${isOpen ? '' : 'hidden'} ${isFullScreen ? 'fullscreen' : ''}${
           isExpanded ? 'collapsed' : ''
         }`}
         ref={notepadRef}
+        style={isFullScreen ? notepadPosition : {}}
         onMouseDown={onDragStart}
         onMouseUp={onDragEnd}
       >

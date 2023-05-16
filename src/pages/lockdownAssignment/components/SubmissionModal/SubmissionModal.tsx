@@ -30,7 +30,6 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
             <SubmitButton onClick={resetChange}>Submit</SubmitButton>
           </WfModal.Trigger>
         }
-        
       >
         <WfModal.Title>Submission</WfModal.Title>
         <WfModal.Content style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -47,12 +46,10 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
               </p>
               {selectedOptionIndices.some((optionIndex) => optionIndex === null) ? (
                 <p>
-                  <b className='warning'>WARNING:</b> You have not answered all questions. If you submit now, you will
-                  not be able to change your answers.
+                  <b className="warning">WARNING:</b> You have not answered all questions. If you
+                  submit now, you will not be able to change your answers.
                 </p>
-              ) : (
-                <p>INKY</p>
-              )}
+              ) : null}
               <Checkbox
                 label="I want to submit this FLOWmulti test with the answers I have given during test."
                 onChange={handleChange}
@@ -62,9 +59,14 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
         </WfModal.Content>
         <WfModal.Footer>
           <WfModal.Close>
-            <WfButton content="Cancel" onClick={resetChange}/>
+            <WfButton content="Cancel" onClick={resetChange} />
           </WfModal.Close>
-          <WfLinkButton to="/page/lockdownSubmitExit" content="Confirm" color="green" disabled={checked}>
+          <WfLinkButton
+            to="/page/lockdownSubmitExit"
+            content="Confirm"
+            color="green"
+            disabled={checked}
+          >
             Confirm
           </WfLinkButton>
         </WfModal.Footer>

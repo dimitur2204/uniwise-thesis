@@ -5,7 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import { TabContext } from '@mui/lab';
-import { WfButton } from '@uniwise/flow-ui-react';
+import { Tooltip, WfButton } from '@uniwise/flow-ui-react';
 import { Radio } from 'semantic-ui-react';
 import { WfModal } from '../WfModal/WfModal';
 import './SettingsModal.css';
@@ -45,21 +45,23 @@ export const SettingModal = () => {
       <WfModal
         trigger={
           <WfModal.Trigger>
-            <IconButton
-              aria-label="settings"
-              size="large"
-              className="active"
-              sx={{
-                backgroundColor: '#A3ACA4',
-                borderRadius: '4px',
-                '&:hover': {
-                  backgroundColor: '#8F9E91',
-                  color: 'white',
-                },
-              }}
-            >
-              <SettingsIcon fontSize="large" />
-            </IconButton>
+            <Tooltip text="Settings">
+              <IconButton
+                aria-label="settings"
+                size="large"
+                className="active"
+                sx={{
+                  backgroundColor: '#A3ACA4',
+                  borderRadius: '4px',
+                  '&:hover': {
+                    backgroundColor: '#8F9E91',
+                    color: 'white',
+                  },
+                }}
+              >
+                <SettingsIcon fontSize="large" />
+              </IconButton>
+            </Tooltip>
           </WfModal.Trigger>
         }
       >
@@ -225,21 +227,21 @@ export const SettingModal = () => {
                   Zoom in and out using the following keyboard shortcuts (In the lockdown browser on
                   Windows use the browser information button instead):
                 </p>
-                <div className='zoom'>
+                <div className="zoom">
                   <p>
                     <b>Zoom in</b>
                   </p>
                   <p>To zoom in, press Command +.</p>
                 </div>
                 <p>The browser will zoom in incrementally each time you press the plus key.</p>
-                <div className='zoom'>
+                <div className="zoom">
                   <p>
                     <b>Zoom out</b>
                   </p>
                   <p>To zoom out, press Command -.</p>
                 </div>
                 <p>The browser will zoom out incrementally each time you press the minus key.</p>
-                <div className='zoom'>
+                <div className="zoom">
                   <p>
                     <b>Reset the zoom level</b>
                   </p>

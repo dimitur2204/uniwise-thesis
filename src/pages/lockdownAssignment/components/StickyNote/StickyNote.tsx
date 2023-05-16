@@ -70,10 +70,10 @@ const StickyNote: React.FC<StickyNoteProps> = ({ onAddNote, onHideNotes, classNa
   return (
     <>
     <Tooltip text={'Add sticky notes'}>
-        <ToolbarIcon className={className} onClick={()=>{ handleAddNote(), handleShowAllNotes() }}><img src={StickyAdd} alt='StickyAdd' /></ToolbarIcon>
+        <ToolbarIcon className={className} onClick={()=>{ handleAddNote(), handleShowAllNotes() }} aria-label='Add sticky notes'><img src={StickyAdd} alt='StickyAdd' /></ToolbarIcon>
     </Tooltip>
     <Tooltip text={'Hide sticky Notes'}>
-        <ToolbarIcon className={className} onClick={isHidden ? handleShowAllNotes : handleHideNotes}><img src={StickyRemove} alt='StickyRemove' /></ToolbarIcon>
+        <ToolbarIcon className={className} onClick={isHidden ? handleShowAllNotes : handleHideNotes} aria-label='Remove sticky notes'><img src={StickyRemove} alt='StickyRemove' /></ToolbarIcon>
     </Tooltip>
       {!isHidden &&
         notes.map((note) => (

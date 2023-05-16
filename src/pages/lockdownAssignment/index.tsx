@@ -13,6 +13,7 @@ import Overview from './components/Overview/Overview';
 import CountDownTimer from './components/CountdownTimer';
 import flowMulti from '../../assets/images/flowMulti.svg';
 import questionsData from './data/Quiz.json';
+import { Tooltip } from '@uniwise/flow-ui-react';
 
 
 export default function AssignmentPage() {
@@ -103,6 +104,7 @@ export default function AssignmentPage() {
         <div className="right">
           <SettingModal></SettingModal>
 
+          <Tooltip text="Messages">
           <IconButton
             aria-label="message"
             size="large"
@@ -118,7 +120,9 @@ export default function AssignmentPage() {
           >
             <MessageIcon fontSize="large" />
           </IconButton>
+          </Tooltip>
 
+          <Tooltip text="Description">
           <IconButton
             aria-label="description"
             size="large"
@@ -134,6 +138,7 @@ export default function AssignmentPage() {
           >
             <DescriptionIcon fontSize="large" />
           </IconButton>
+          </Tooltip>
 
           <div className="timer">
             <AccessTimeIcon fontSize="large"></AccessTimeIcon>
