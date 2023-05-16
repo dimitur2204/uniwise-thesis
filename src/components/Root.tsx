@@ -3,6 +3,7 @@ import { get } from '@uniwise/jwt';
 import { PropsWithChildren } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from './Container';
+import { Header } from './Header';
 
 export const Root: React.FC<PropsWithChildren> = () => {
   const labelBundle = {
@@ -28,6 +29,7 @@ export const Root: React.FC<PropsWithChildren> = () => {
   };
   return (
     <>
+      <Header />
       <WfPageTitleRoot licenseName={''} />
       {/*  <MainHeader labelBundle={labelBundle} JWT={get()} selectedRole={SelectedRole.ADMIN} /> */}
  {/*      <Container> */}
