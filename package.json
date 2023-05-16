@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/signika": "^4.5.13",
     "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.129",
     "@mui/material": "^5.12.3",
     "@mui/x-data-grid": "^6.3.1",
     "@mui/x-data-grid-generator": "^6.3.1",
