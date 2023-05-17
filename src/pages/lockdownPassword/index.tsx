@@ -11,7 +11,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './lockdownPassword.css';
 
-
 export const LockdownPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -25,7 +24,7 @@ export const LockdownPassword = () => {
       <WfModal
         size="small"
         open
-        styles={{ overlayStyle: { backgroundColor:'#A9ABAF', opacity: '1' } }}
+        styles={{ overlayStyle: { backgroundColor: '#A9ABAF', opacity: '1' } }}
       >
         <WfModal.Title>Participation password</WfModal.Title>
         <WfModal.Content style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -60,7 +59,12 @@ export const LockdownPassword = () => {
           <LinkButton variant="contained" to="/" size="large" color="secondary">
             Cancel
           </LinkButton>
-          <LinkButton variant="contained" to="/page/lockdown" size="large">
+          <LinkButton
+            variant="contained"
+            to="/page/lockdown"
+            size="large"
+            sx={{ marginLeft: '5px' }}
+          >
             Confirm
           </LinkButton>
         </WfModal.Footer>
