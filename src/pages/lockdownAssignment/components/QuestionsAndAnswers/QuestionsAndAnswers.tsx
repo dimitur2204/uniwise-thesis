@@ -1,9 +1,9 @@
 import React from 'react';
-import { WfButton } from '@uniwise/flow-ui-react';
 import { Radio } from 'semantic-ui-react';
 import questionsData from '../../data/Quiz.json';
 import { SubmitModal } from '../SubmissionModal/SubmissionModal';
 import './QuestionAndAnswers.css';
+import { Button } from '@mui/material';
 
 interface Props {
   currentQuestionIndex: number;
@@ -20,7 +20,6 @@ const QuestionAndAnswers: React.FC<Props> = ({
   handleOptionSelect,
   selectedOptionIndices,
 }) => {
-  
   const currentQuestion = questionsData.questions[currentQuestionIndex];
   if (!currentQuestion) {
     return <div>No questions found</div>;
@@ -31,7 +30,7 @@ const QuestionAndAnswers: React.FC<Props> = ({
       <h2>{currentQuestion.question}</h2>
 
       {currentQuestion.options.map((option, index) => (
-        <div className={"optionContainer"} key={index}>
+        <div className={'optionContainer'} key={index}>
           <div
             className="box"
             style={{
@@ -48,14 +47,20 @@ const QuestionAndAnswers: React.FC<Props> = ({
         </div>
       ))}
 
-      <div className='navigationButtons'>
+      <div className="navigationButtons">
         {currentQuestionIndex > 0 && (
-          <WfButton content="Previous question" onClick={handlePreviousQuestion} />
+          <Button variant="contained" color="secondary" onClick={handlePreviousQuestion} sx={{ marginRight: '5px' }}>
+            Previous question
+          </Button>
         )}
         {currentQuestionIndex < questionsData.questions.length - 1 && (
-          <WfButton content="Next question" onClick={handleNextQuestion} color="green" />
+          <Button variant="contained" onClick={handleNextQuestion}>
+            Next question
+          </Button>
         )}
-        {currentQuestionIndex === questionsData.questions.length - 1 && <SubmitModal selectedOptionIndices={selectedOptionIndices}/>}
+        {currentQuestionIndex === questionsData.questions.length - 1 && (
+          <SubmitModal selectedOptionIndices={selectedOptionIndices} />
+        )}
       </div>
     </div>
   );

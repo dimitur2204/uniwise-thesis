@@ -8,7 +8,6 @@ export const ExitButton = styled(Button)({
   padding: '6px 30px',
   backgroundColor: '#B04545',
   color:'white',
-  fontFamily: 'Signika-Bold',
   borderBottomRightRadius: '0px',
   borderBottomLeftRadius: '0px',
   '&:hover': {
@@ -27,9 +26,7 @@ export const SubmitButton = styled(Button)({
     textTransform: 'none',
     fontSize: 16,
     padding: '6px 30px',
-    backgroundColor: '#628010',
     color:'white',
-    fontFamily: 'Signika-Bold',
     '&:hover': {
      backgroundColor: '#3f530a',
     },

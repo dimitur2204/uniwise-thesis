@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { WfModal } from '../WfModal/WfModal';
-import { Checkbox, WfButton } from '@uniwise/flow-ui-react';
+import { Checkbox } from '@uniwise/flow-ui-react';
 import personUrl from '../../../../assets/landing-person.svg';
-import { WfLinkButton } from '../../../../components/LinkButton';
+import { LinkButton } from '../../../../components/LinkButton';
 import { SubmitButton } from '../ExitAndSubmitButtons';
 import './SubmissionModal.css';
+import { Button } from '@mui/material';
 
 interface Props {
   selectedOptionIndices: (number | null)[];
@@ -27,7 +28,7 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
         size="small"
         trigger={
           <WfModal.Trigger>
-            <SubmitButton onClick={resetChange}>Submit</SubmitButton>
+            <SubmitButton variant='contained' onClick={resetChange}>Submit</SubmitButton>
           </WfModal.Trigger>
         }
       >
@@ -59,16 +60,18 @@ export const SubmitModal: React.FC<Props> = ({ selectedOptionIndices }) => {
         </WfModal.Content>
         <WfModal.Footer>
           <WfModal.Close>
-            <WfButton content="Cancel" onClick={resetChange} />
+            <Button variant="contained" color='secondary' onClick={resetChange}>
+              Cancel
+            </Button>
           </WfModal.Close>
-          <WfLinkButton
+          <LinkButton
+            variant="contained"
             to="/page/lockdownSubmitExit"
-            content="Confirm"
-            color="green"
             disabled={checked}
+            sx={{ marginLeft: '5px' }}
           >
             Confirm
-          </WfLinkButton>
+          </LinkButton>
         </WfModal.Footer>
       </WfModal>
     </>

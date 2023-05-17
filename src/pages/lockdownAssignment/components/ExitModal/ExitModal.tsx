@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Checkbox, WfButton } from '@uniwise/flow-ui-react';
+import { Checkbox } from '@uniwise/flow-ui-react';
 import personUrl from '../../../../assets/landing-person.svg';
 import { WfModal } from '../WfModal/WfModal';
-import { WfLinkButton } from '../../../../components/LinkButton';
+import { LinkButton } from '../../../../components/LinkButton';
 import { ExitButton } from '../ExitAndSubmitButtons';
-
+import { Button } from '@mui/material';
 
 export const ExitModal = () => {
   const [checked, setChecked] = useState(false);
@@ -46,11 +46,22 @@ export const ExitModal = () => {
         </WfModal.Content>
         <WfModal.Footer>
           <WfModal.Close>
-            <WfButton content="Cancel"/>
+            <Button variant="contained" color="secondary">
+              Cancel
+            </Button>
           </WfModal.Close>
-          <WfLinkButton to="/page/lockdownExit" content="Confirm" color="red" disabled={!checked}>
+          <LinkButton
+            variant="contained"
+            to="/page/lockdownExit"
+            disabled={!checked}
+            sx={{
+              backgroundColor: '#B04545',
+              marginLeft: '5px',
+              '&:hover': { backgroundColor: '#9C3131' },
+            }}
+          >
             Exit
-          </WfLinkButton>
+          </LinkButton>
         </WfModal.Footer>
       </WfModal>
     </>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -254,10 +254,10 @@ export const SettingModal = () => {
         </WfModal.Content>
         <WfModal.Footer>
           <WfModal.Close>
-            <WfButton content="Close" />
+            <Button variant="contained" color='secondary'>Exit</Button>
           </WfModal.Close>
           <WfModal.Close>
-            <WfButton content="Ok" color="green" />
+            <Button variant='contained' sx={{marginLeft:"5px"}}>Confirm</Button>
           </WfModal.Close>
         </WfModal.Footer>
       </WfModal>
