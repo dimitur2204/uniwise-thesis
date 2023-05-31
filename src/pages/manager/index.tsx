@@ -35,15 +35,15 @@ function a11yProps(value: ActiveTab) {
 
 export const Manager = () => {
   const [activeTab, setActiveTab] = useState(ActiveTab.BASIC);
-  const { t } = useTranslation(['index', 'common']);
+  const { t } = useTranslation();
   return (
     <>
       <Header />
       <WfPageTitleRoot licenseName={''} />
       <Container>
         <Title
-          title={t('flow.title')}
-          description="Flow subtitle and what the flow is about here"
+          title={t('index.header.title')}
+          description={t('index.header.description')}
           icon={flowLock}
           sx={{
             mt: 2,

@@ -13,6 +13,7 @@
     }
   },
   "common": {
+    "create": "Opret",
     "delete": "Slet",
     "participation": "Deltagelse",
     "invigilation": "Overvågning",

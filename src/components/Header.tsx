@@ -15,6 +15,7 @@ import LicenseAdminIcon from '../assets/license-admin-icon.svg';
 import ManagingIcon from '../assets/managing-icon.svg';
 
 import { theme } from '../theme';
+import { useTranslation } from 'react-i18next';
 const HeaderTab = styled(Tab)(() => ({
   textTransform: 'none',
   color: common.white,
@@ -35,6 +36,8 @@ const HeaderTabs = styled(Tabs)(() => ({
 
 export const Header = () => {
   const [activeTab, setActiveTab] = useState(5);
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -63,49 +66,49 @@ export const Header = () => {
             variant="scrollable"
           >
             <HeaderTab
-              label="Participation"
+              label={t('common.participation')}
               icon={<img width={20} height={20} src={ParticipationIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Invigilation"
+              label={t('common.invigilation')}
               icon={<img width={20} height={20} src={InvigilationIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Authoring"
+              label={t('common.authoring')}
               icon={<img width={20} height={20} src={AuthoringIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Marking"
+              label={t('common.marking')}
               icon={<img width={20} height={20} src={MarkingIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Reviewing"
+              label={t('common.reviewing')}
               icon={<img width={20} height={20} src={ReviewingIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Managing"
+              label={t('common.managing')}
               icon={<img width={20} height={20} src={ManagingIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="Support"
+              label={t('common.support')}
               icon={<img width={20} height={20} src={SupportIcon} />}
               iconPosition="start"
             />
             <HeaderTab
-              label="License administration"
+              label={t('common.license-administration')}
               icon={<img width={20} height={20} src={LicenseAdminIcon} />}
               iconPosition="start"
             />
           </HeaderTabs>
           <ButtonGroup>
             <Button variant="contained" color="secondary" startIcon={<Create />}>
-              Create
+              {t('common.create')}
             </Button>
             <Button aria-label="Combine" variant="contained" color="secondary">
               <Menu />

@@ -4,11 +4,13 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { CopyAll, Delete, MenuOutlined, Publish, ReplayOutlined } from '@mui/icons-material';
-import { Button, IconButton, Menu } from '@mui/material';
+import { IconButton, Menu } from '@mui/material';
 import { CARD_BORDER } from '../../../theme';
+import { useTranslation } from 'react-i18next';
 
 export default function FlowMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const { t } = useTranslation();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -33,26 +35,26 @@ export default function FlowMenu() {
           <ListItemIcon>
             <Publish fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Create a remarking flow</ListItemText>
+          <ListItemText>{t('index.actions.remarking')}</ListItemText>
         </MenuItem>
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <ReplayOutlined fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Reset grades</ListItemText>
+          <ListItemText>{t('index.actions.reset')}</ListItemText>
         </MenuItem>
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <CopyAll fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Create a copy of the flow</ListItemText>
+          <ListItemText>{t('index.actions.create-copy')}</ListItemText>
         </MenuItem>
         <Divider />
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <Delete fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Delete</ListItemText>
+          <ListItemText>{t('common.delete')}</ListItemText>
         </MenuItem>
       </Menu>
     </>

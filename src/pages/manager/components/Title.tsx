@@ -3,6 +3,7 @@ import { Box, Button, ButtonGroup, Card, CardProps, Stack, Typography } from '@m
 import FlowMenu from './FlowMenu';
 import { useContext } from 'react';
 import { ExternalPageModalContext } from '../../../components/ExternalPageModal';
+import { useTranslation } from 'react-i18next';
 
 interface TitleProps extends CardProps {
   title: string;
@@ -12,6 +13,7 @@ interface TitleProps extends CardProps {
 
 export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...props }) => {
   const { setOpen } = useContext(ExternalPageModalContext);
+  const { t } = useTranslation();
   return (
     <Card
       variant="outlined"
@@ -43,7 +45,7 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
               setOpen?.(true);
             }}
           >
-            Settings
+            {t('index.actions.settings')}
           </Button>
           <Button
             variant="contained"
@@ -53,7 +55,7 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
               setOpen?.(true);
             }}
           >
-            Messages
+            {t('index.actions.messages')}
           </Button>
         </ButtonGroup>
         <FlowMenu />
