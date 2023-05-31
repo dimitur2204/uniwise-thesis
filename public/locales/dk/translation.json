@@ -1,0 +1,26 @@
+{
+  "index": {
+    "header": {
+      "title": "Flow titel",
+      "description": "Flow undertekst og hvad flowet handler om her"
+    },
+    "actions": {
+      "settings": "Indstillinger",
+      "messages": "Beskeder",
+      "remarking": "Skab et bemærkningsflow",
+      "reset": "Nulstil karakterer",
+      "create-copy": "Opret kopi af flow"
+    }
+  },
+  "common": {
+    "delete": "Slet",
+    "participation": "Deltagelse",
+    "invigilation": "Overvågning",
+    "authoring": "Forfatter",
+    "marking": "Bedømmelse",
+    "reviewing": "Gennemgang",
+    "managing": "Administrering",
+    "support": "Support",
+    "license-administration": "Licensadministration"
+  }
+}

@@ -9,6 +9,7 @@ interface TitleProps extends CardProps {
   description: string;
   icon: string;
 }
+
 export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...props }) => {
   const { setOpen } = useContext(ExternalPageModalContext);
   return (

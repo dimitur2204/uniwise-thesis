@@ -8,6 +8,8 @@ import '@fontsource/signika/500.css';
 import '@fontsource/signika/700.css';
 import './index.css';
 
+import './i18n';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <App />

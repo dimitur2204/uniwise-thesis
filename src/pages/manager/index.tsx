@@ -14,6 +14,7 @@ import { Rooms } from './components/tabs/Rooms';
 import { Sources } from './components/tabs/Sources';
 import { Combine } from './components/tabs/Combine';
 import { Advanced } from './components/tabs/Advanced';
+import { useTranslation } from 'react-i18next';
 export enum ActiveTab {
   BASIC,
   HAND_OUT,
@@ -34,37 +35,14 @@ function a11yProps(value: ActiveTab) {
 
 export const Manager = () => {
   const [activeTab, setActiveTab] = useState(ActiveTab.BASIC);
+  const { t } = useTranslation(['index', 'common']);
   return (
     <>
       <Header />
       <WfPageTitleRoot licenseName={''} />
       <Container>
-        {/* <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-      <Chip label="Basic Chip" />
-      <TextField
-        id="standard-helperText"
-        label="Helper text"
-        defaultValue="Default Value"
-        helperText="Some important text"
-        variant="standard"
-      />
-      <Select
-        labelId="demo-simple-select-standard-label"
-        id="demo-simple-select-standard"
-        label="Age"
-        variant="standard"
-      >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select> */}
         <Title
-          title="Flow Title"
+          title={t('flow.title')}
           description="Flow subtitle and what the flow is about here"
           icon={flowLock}
           sx={{
