@@ -17,14 +17,18 @@ import { CARD_BORDER } from '../../../../theme';
 import { useContext, useState } from 'react';
 import { PasswordField } from '../../../../components/PasswordField';
 import { ExternalPageModalContext } from '../../../../components/ExternalPageModal';
+import { useTranslation } from 'react-i18next';
 
+const BASIC_I18N_KEY = 'index.tab.basic.info';
+const basicTrans = (key: string) => `${BASIC_I18N_KEY}.${key}`;
 const BasicBox = () => {
   const [exType, setExType] = useState('');
   const [purpose, setPurpose] = useState('');
   const [enabled, setEnabled] = useState(false);
+  const { t } = useTranslation();
   return (
     <ActionCard
-      title="Basic information"
+      title={t(basicTrans('title'))}
       contentSx={{
         padding: 0,
       }}
@@ -46,22 +50,32 @@ const BasicBox = () => {
         </Stack>
         <Stack>
           <Typography variant="h6" component="h4">
-            Flow code: AKH0000001076
+            {t(basicTrans('code'))}: AKH0000001076
           </Typography>
           <Typography variant="body2" component="p">
-            Flow code: AKH0000001076
+            {t(basicTrans('code'))}: AKH0000001076
           </Typography>
           <Typography variant="body2" component="p">
-            Flow ID: 1076
+            {t(basicTrans('id'))}: 1076
           </Typography>
         </Stack>
       </Stack>
       <Grid2 container spacing={5} padding={2}>
         <Grid2 xs={12} md={6}>
-          <TextField disabled={!enabled} fullWidth variant="standard" label="Subtitle" />
+          <TextField
+            disabled={!enabled}
+            fullWidth
+            variant="standard"
+            label={t(basicTrans('subtitle'))}
+          />
         </Grid2>
         <Grid2 xs={12} md={6}>
-          <TextField disabled={!enabled} fullWidth variant="standard" label="Term" />
+          <TextField
+            disabled={!enabled}
+            fullWidth
+            variant="standard"
+            label={t(basicTrans('term'))}
+          />
         </Grid2>
         <Grid2 xs={12} md={6}>
           <TextField
@@ -74,7 +88,7 @@ const BasicBox = () => {
             fullWidth
             variant="outlined"
             size="small"
-            label="Examination type"
+            label={t(basicTrans('examination-type'))}
           >
             <MenuItem value="ord-ex">Ordinary examination</MenuItem>
           </TextField>
@@ -90,7 +104,7 @@ const BasicBox = () => {
             fullWidth
             variant="outlined"
             size="small"
-            label="Purpose"
+            label={t(basicTrans('purpose'))}
           >
             <MenuItem value="ex">Examination</MenuItem>
           </TextField>

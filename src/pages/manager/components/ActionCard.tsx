@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, SxProps, Typography } from
 import { Check, Edit } from '@mui/icons-material';
 import { PropsWithChildren, useState } from 'react';
 import { CARD_BORDER } from '../../../theme';
+import { useTranslation } from 'react-i18next';
 
 export interface ActionCardProps extends PropsWithChildren {
   title: string;
@@ -22,6 +23,7 @@ export const ActionCard: React.FC<ActionCardProps> = ({
   contentSx,
 }) => {
   const [editing, setEditing] = useState(false);
+  const { t } = useTranslation();
   return (
     <Card
       variant="outlined"
@@ -59,7 +61,7 @@ export const ActionCard: React.FC<ActionCardProps> = ({
             endIcon={<Edit />}
             disabled={editing}
           >
-            Edit
+            {t('common.edit')}
           </Button>
           <Button
             onClick={() => {
@@ -70,7 +72,7 @@ export const ActionCard: React.FC<ActionCardProps> = ({
             endIcon={<Check />}
             disabled={!editing}
           >
-            Save
+            {t('common.save')}
           </Button>
         </CardActions>
       )}

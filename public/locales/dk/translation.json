@@ -4,12 +4,38 @@
       "title": "Flow titel",
       "description": "Flow undertekst og hvad flowet handler om her"
     },
-    "actions": {
+    "action": {
       "settings": "Indstillinger",
       "messages": "Beskeder",
       "remarking": "Skab et bemærkningsflow",
       "reset": "Nulstil karakterer",
       "create-copy": "Opret kopi af flow"
+    },
+    "tab": {
+      "title": {
+        "basic": "Basis",
+        "hand-out": "Udlevering",
+        "associates": "Tilknyttede",
+        "rooms": "Lokaler",
+        "sources": "Kilder",
+        "combine": "Kombiner",
+        "advanced": "Avanceret"
+      },
+      "basic": {
+        "info": {
+          "title": "Basis information",
+          "code": "Flow Kode",
+          "id": "Flow ID",
+          "subtitle": "Flow undertekst",
+          "term": "Semester",
+          "examination-type": "Eksamenstype",
+          "purpose": "Formål"
+        },
+        "deadlines": {
+          "title": "Deadline",
+          "description": "I dette afsnit sætter du deadlines for deltagelses- og vurderingsperioderne"
+        }
+      }
     }
   },
   "common": {
@@ -22,6 +48,11 @@
     "reviewing": "Gennemgang",
     "managing": "Administrering",
     "support": "Support",
-    "license-administration": "Licensadministration"
+    "license-administration": "Licensadministration",
+    "edit": "Rediger",
+    "save": "Gem",
+    "and": "og",
+    "start": "starte",
+    "end": "ende"
   }
 }

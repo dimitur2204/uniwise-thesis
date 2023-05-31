@@ -35,19 +35,19 @@ export default function FlowMenu() {
           <ListItemIcon>
             <Publish fontSize="small" />
           </ListItemIcon>
-          <ListItemText>{t('index.actions.remarking')}</ListItemText>
+          <ListItemText>{t('index.action.remarking')}</ListItemText>
         </MenuItem>
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <ReplayOutlined fontSize="small" />
           </ListItemIcon>
-          <ListItemText>{t('index.actions.reset')}</ListItemText>
+          <ListItemText>{t('index.action.reset')}</ListItemText>
         </MenuItem>
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <CopyAll fontSize="small" />
           </ListItemIcon>
-          <ListItemText>{t('index.actions.create-copy')}</ListItemText>
+          <ListItemText>{t('index.action.create-copy')}</ListItemText>
         </MenuItem>
         <Divider />
         <MenuItem onClick={() => setAnchorEl(null)}>

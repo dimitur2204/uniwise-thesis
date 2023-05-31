@@ -61,13 +61,13 @@ export const Manager = () => {
               borderBottomWidth: 1,
             }}
           >
-            <Tab label="Basic" {...a11yProps(ActiveTab.BASIC)} />
-            <Tab label="Hand out" {...a11yProps(ActiveTab.HAND_OUT)} />
-            <Tab label="Associates" {...a11yProps(ActiveTab.ASSOCIATES)} />
-            <Tab label="Rooms" {...a11yProps(ActiveTab.ROOMS)} />
-            <Tab label="Sources" {...a11yProps(ActiveTab.SOURCES)} />
-            <Tab label="Combine" {...a11yProps(ActiveTab.COMBINE)} />
-            <Tab label="Advanced" {...a11yProps(ActiveTab.ADVANCED)} />
+            <Tab label={t('index.tab.title.basic')} {...a11yProps(ActiveTab.BASIC)} />
+            <Tab label={t('index.tab.title.hand-out')} {...a11yProps(ActiveTab.HAND_OUT)} />
+            <Tab label={t('index.tab.title.associates')} {...a11yProps(ActiveTab.ASSOCIATES)} />
+            <Tab label={t('index.tab.title.rooms')} {...a11yProps(ActiveTab.ROOMS)} />
+            <Tab label={t('index.tab.title.sources')} {...a11yProps(ActiveTab.SOURCES)} />
+            <Tab label={t('index.tab.title.combine')} {...a11yProps(ActiveTab.COMBINE)} />
+            <Tab label={t('index.tab.title.advanced')} {...a11yProps(ActiveTab.ADVANCED)} />
           </Tabs>
         </Card>
         <TabPanel value={ActiveTab.BASIC} activeTab={activeTab}>

@@ -4,7 +4,7 @@
       "title": "Flow titel",
       "description": "Flow undertekst og hvad flowet handler om her"
     },
-    "actions": {
+    "action": {
       "settings": "Indstillinger",
       "messages": "Beskeder",
       "remarking": "Skab et bemærkningsflow",

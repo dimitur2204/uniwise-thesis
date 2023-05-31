@@ -45,7 +45,7 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
               setOpen?.(true);
             }}
           >
-            {t('index.actions.settings')}
+            {t('index.action.settings')}
           </Button>
           <Button
             variant="contained"
@@ -55,7 +55,7 @@ export const Title: React.FC<TitleProps> = ({ title, description, icon, sx, ...p
               setOpen?.(true);
             }}
           >
-            {t('index.actions.messages')}
+            {t('index.action.messages')}
           </Button>
         </ButtonGroup>
         <FlowMenu />
