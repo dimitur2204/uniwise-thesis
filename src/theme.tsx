@@ -3,6 +3,7 @@ import { green, common, grey } from '@mui/material/colors';
 
 export const MAIN_GREEN = '#517709';
 export const CARD_BORDER = 'rgba(0, 0, 0, 0.12)';
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -50,6 +51,103 @@ export const theme = createTheme({
           borderStyle: 'solid',
           borderColor: grey[300],
           boxShadow: 'none',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: grey[400],
+          color: common.black,
+          borderRadius: '0px 10px 10px 10px',
+          height: '24px',
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        colorSecondary: {
+          color: grey[200],
+          '&:before': {
+            borderBottomColor: grey[200],
+          },
+          '&:hover:not(.Mui-disabled):before': {
+            borderBottomColor: grey[200],
+          },
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        body2: {
+          color: grey[700],
+          fontSize: '14px',
+          lineHeight: '20px',
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          minHeight: '55px',
+        },
+      },
+    },
+  },
+});
+
+export const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: MAIN_GREEN,
+      light: green[200],
+      dark: green[600],
+    },
+    secondary: {
+      main: grey[200],
+    },
+    background: {
+      default: '#121212',
+      paper: '#1E1E1E',
+    },
+  },
+  typography: {
+    fontFamily: 'Signika, sans-serif',
+  },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: common.white,
+          fontStyle: 'normal',
+          fontWeight: 500,
+          fontSize: '12px',
+          lineHeight: '20px',
+          textTransform: 'none',
+          boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.25)',
+          borderRadius: '4px',
+          padding: '6px 12px',
+          '&:hover': {
+            boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.25)',
+          },
+        },
+        containedSecondary: {
+          color: common.white,
+          backgroundColor: grey[800], // Darker background color, you can adjust it as needed
+          '&:hover': {
+            backgroundColor: grey[700], // Darker hover background color, you can adjust it as needed
+          },
+          borderColor: grey[600],
+          borderStyle: 'solid',
+          borderWidth: '2px',
+          boxShadow: 'none', // Remove the box shadow
         },
       },
     },
