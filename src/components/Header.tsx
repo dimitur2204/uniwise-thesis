@@ -1,4 +1,15 @@
-import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button, IconButton } from '@mui/material';
+import {
+  Box,
+  Tab,
+  Tabs,
+  styled,
+  Stack,
+  ButtonGroup,
+  Button,
+  IconButton,
+  ButtonBase,
+  Typography,
+} from '@mui/material';
 import logoWhite from '../assets/logo-white.svg';
 import { common, grey } from '@mui/material/colors';
 import { Container } from './Container';
@@ -38,7 +49,7 @@ const HeaderTabs = styled(Tabs)(() => ({
 export const Header = () => {
   const [activeTab, setActiveTab] = useState(5);
   const { currentTheme, setTheme } = useContext(ThemeContext)!;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <Box
@@ -57,7 +68,15 @@ export const Header = () => {
         <Stack direction="row" justifyContent="space-between">
           <img src={logoWhite} alt="logo" />
           <Stack gap={2} direction="row" justifyContent="space-between" alignItems="center">
-            <LanguageSelect />
+            <ButtonBase
+              onClick={() => {
+                i18n.changeLanguage(i18n.language === 'en' ? 'dk' : 'en');
+              }}
+            >
+              <Typography fontSize="0.9rem">
+                {i18n.language === 'en' ? 'DK 🇩🇰' : 'EN 🇬🇧'}
+              </Typography>
+            </ButtonBase>
             <IconButton
               onClick={() => {
                 setTheme(currentTheme === darkTheme ? theme : darkTheme);
