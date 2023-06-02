@@ -1,10 +1,10 @@
-import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button } from '@mui/material';
+import { Box, Tab, Tabs, styled, Stack, ButtonGroup, Button, IconButton } from '@mui/material';
 import logoWhite from '../assets/logo-white.svg';
 import { common, grey } from '@mui/material/colors';
 import { Container } from './Container';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { LanguageSelect } from './LanguageSelect';
-import { Create, Menu } from '@mui/icons-material';
+import { Brightness1, Create, DarkMode, LightMode, Menu } from '@mui/icons-material';
 import AuthoringIcon from '../assets/authoring-icon.svg';
 import InvigilationIcon from '../assets/invigilator icon.svg';
 import ParticipationIcon from '../assets/participation-icon.svg';
@@ -13,9 +13,10 @@ import MarkingIcon from '../assets/marking-icon.svg';
 import SupportIcon from '../assets/support-icon.svg';
 import LicenseAdminIcon from '../assets/license-admin-icon.svg';
 import ManagingIcon from '../assets/managing-icon.svg';
-
-import { theme } from '../theme';
 import { useTranslation } from 'react-i18next';
+import { darkTheme, theme } from '../theme';
+import { ThemeContext } from '../App';
+
 const HeaderTab = styled(Tab)(() => ({
   textTransform: 'none',
   color: common.white,
@@ -36,6 +37,7 @@ const HeaderTabs = styled(Tabs)(() => ({
 
 export const Header = () => {
   const [activeTab, setActiveTab] = useState(5);
+  const { currentTheme, setTheme } = useContext(ThemeContext)!;
   const { t } = useTranslation();
 
   return (
@@ -54,7 +56,20 @@ export const Header = () => {
       >
         <Stack direction="row" justifyContent="space-between">
           <img src={logoWhite} alt="logo" />
-          <LanguageSelect />
+          <Stack gap={2} direction="row" justifyContent="space-between" alignItems="center">
+            <LanguageSelect />
+            <IconButton
+              onClick={() => {
+                setTheme(currentTheme === darkTheme ? theme : darkTheme);
+              }}
+              aria-label="Change theme"
+              sx={{
+                color: common.white,
+              }}
+            >
+              {currentTheme === darkTheme ? <LightMode /> : <DarkMode />}
+            </IconButton>
+          </Stack>
         </Stack>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <HeaderTabs

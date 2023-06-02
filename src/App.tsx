@@ -2,7 +2,7 @@ import './App.css';
 import { Theme, ThemeProvider } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { darkTheme, theme } from './theme';
+import { theme } from './theme';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Landing } from './pages/landing';
 import { Manager } from './pages/manager';
@@ -53,17 +53,17 @@ const router = createBrowserRouter(
   },
 );
 
-const ThemeContext = React.createContext<{
-  theme: Theme;
+export const ThemeContext = React.createContext<{
+  currentTheme: Theme;
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 } | null>(null);
 
 function App() {
-  const [_theme, setTheme] = React.useState<Theme>(theme);
+  const [currentTheme, setTheme] = React.useState<Theme>(theme);
   return (
     <ExternalPageModalProvider>
-      <ThemeContext.Provider value={{ theme: _theme, setTheme }}>
-        <ThemeProvider theme={_theme}>
+      <ThemeContext.Provider value={{ currentTheme, setTheme }}>
+        <ThemeProvider theme={currentTheme}>
           <CssBaseline />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <RouterProvider router={router} />
