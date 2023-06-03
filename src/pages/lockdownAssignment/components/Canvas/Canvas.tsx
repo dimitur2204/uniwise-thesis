@@ -28,7 +28,6 @@ const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex, sh
   const [drawing, setDrawing] = useState<Drawing[]>([]);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [isErasing, setIsErasing] = useState<boolean>(false);
-  const [isCanvasVisible, setIsCanvasVisible] = useState<boolean>(false); // New state variable
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -50,7 +49,7 @@ const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex, sh
         });
       }
     }
-  }, [drawing, showWrite]);
+  }, [drawing, showWrite, showDrawings]);
 
   const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement>) => {
     if (!showWrite) return;
@@ -143,7 +142,6 @@ const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex, sh
           onMouseUp={handleMouseUp}
           width={800}
           height={600}
-          onClick={() =>{setIsCanvasVisible(true)}}
         />) : null}
         {showWrite ? (
           <div className="canvasButtons">

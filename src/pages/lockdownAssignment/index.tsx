@@ -45,6 +45,7 @@ export default function AssignmentPage() {
 
   const handleWriteOpen = () => {
     setShowWrite(!showWrite);
+    setShowDrawings(true);
   };
 
   const handleShowDrawings = () => {
