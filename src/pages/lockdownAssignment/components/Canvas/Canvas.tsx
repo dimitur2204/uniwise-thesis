@@ -18,10 +18,11 @@ export type Drawing = {
 
 interface CanvasProps {
   showWrite: boolean;
+  showDrawings: boolean;
   currentQuestionIndex: number;
 }
 
-const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex }) => {
+const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex, showDrawings }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [color, setColor] = useState<string>('black');
   const [drawing, setDrawing] = useState<Drawing[]>([]);
@@ -124,6 +125,7 @@ const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex }) 
   return (
     <>
       <div>
+        {showDrawings ? (
         <canvas
           style={{
             pointerEvents: showWrite ? 'auto' : 'none', // Make the canvas interactable or non-interactable based on showWrite
@@ -142,7 +144,7 @@ const DrawingApp: React.FC<CanvasProps> = ({ showWrite, currentQuestionIndex }) 
           width={800}
           height={600}
           onClick={() =>{setIsCanvasVisible(true)}}
-        />
+        />) : null}
         {showWrite ? (
           <div className="canvasButtons">
             <div className="canvasButton">

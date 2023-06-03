@@ -27,6 +27,7 @@ export default function AssignmentPage() {
   );
   const [showOverview, setShowOverview] = useState(false);
   const [showWrite, setShowWrite] = useState(false);
+  const [showDrawings, setShowDrawings] = useState(true);
   const [isLoading, setIsLoading] = useState(true); 
 
 
@@ -44,6 +45,10 @@ export default function AssignmentPage() {
 
   const handleWriteOpen = () => {
     setShowWrite(!showWrite);
+  };
+
+  const handleShowDrawings = () => {
+    setShowDrawings(!showDrawings);
   };
 
   const handleOptionSelect = (index: number) => {
@@ -148,6 +153,7 @@ export default function AssignmentPage() {
           <div className="toolbar">
             <Toolbar
               handleWriteOpen={handleWriteOpen}
+              handleShowDrawings={handleShowDrawings}
               handleToggleOverview={handleToggleOverview}
               handleFlag={handleFlag}
               isFlagged={isFlagged}
@@ -160,7 +166,7 @@ export default function AssignmentPage() {
         </div>
         <div className="whiteBox">
 
-            <PaintApp showWrite={showWrite} currentQuestionIndex={currentQuestionIndex} />
+            <PaintApp showWrite={showWrite} currentQuestionIndex={currentQuestionIndex} showDrawings={showDrawings} />
     
           {isLoading ? (
             <Loader className="loader" active size="large" />

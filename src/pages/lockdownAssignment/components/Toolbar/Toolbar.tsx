@@ -13,6 +13,7 @@ import Notepad from '../Notepad/Notepad';
 interface Props {
   handleToggleOverview: () => void;
   handleWriteOpen: () => void;
+  handleShowDrawings: () => void;
   handleFlag: () => void;
   isFlagged: boolean | null;
 }
@@ -37,6 +38,7 @@ export const Toolbar: React.FC<Props> = ({
   handleFlag,
   isFlagged,
   handleWriteOpen,
+  handleShowDrawings,
 }) => {
   return (
     <>
@@ -62,7 +64,7 @@ export const Toolbar: React.FC<Props> = ({
         </ToolbarIcon>
       </Tooltip>
       <Tooltip text={'Hide Write/Draw'}>
-        <ToolbarIcon className="toolbarIcon" aria-label="Hide write/draw">
+        <ToolbarIcon className="toolbarIcon" aria-label="Hide write/draw" onClick={handleShowDrawings}>
           <img src={WriteHide} alt="WriteHide" />
         </ToolbarIcon>
       </Tooltip>
