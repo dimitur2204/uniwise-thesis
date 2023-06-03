@@ -343,6 +343,7 @@ const MarkingAndReviewBox = () => {
           }}
           variant="contained"
           color="secondary"
+          
         >
           Add rubric
         </Button>

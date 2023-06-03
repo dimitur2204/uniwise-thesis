@@ -63,7 +63,8 @@ export const LockdownPassword = () => {
             variant="contained"
             to="/page/lockdown"
             size="large"
-            sx={{ marginLeft: '5px' }}
+            sx={{ marginLeft: '5px' 
+          }}
           >
             Confirm
           </LinkButton>

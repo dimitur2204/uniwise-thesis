@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { IconButton } from '@mui/material';
+import { Button } from '@mui/material';
 import { Tooltip } from '@uniwise/flow-ui-react';
 import Flag from '../../../../assets/images/flag.png';
 import FlagGreen from '../../../../assets/images/flagGreen.png';
@@ -12,11 +12,16 @@ import Notepad from '../Notepad/Notepad';
 
 interface Props {
   handleToggleOverview: () => void;
+  handleWriteOpen: () => void;
   handleFlag: () => void;
   isFlagged: boolean | null;
 }
 
-export const ToolbarIcon = styled(IconButton)({
+export const ToolbarIcon = styled(Button)({
+  padding: '0px',
+  height: '50px',
+  borderRadius: '0px',
+  border: 'none',
   '&:hover': {
     backgroundColor: '#8D8D8D',
     borderRadius: '0px',
@@ -27,7 +32,12 @@ export const ToolbarIcon = styled(IconButton)({
   },
 });
 
-export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isFlagged }) => {
+export const Toolbar: React.FC<Props> = ({
+  handleToggleOverview,
+  handleFlag,
+  isFlagged,
+  handleWriteOpen,
+}) => {
   return (
     <>
       <Tooltip text={'Flag'}>
@@ -47,7 +57,7 @@ export const Toolbar: React.FC<Props> = ({ handleToggleOverview, handleFlag, isF
       <Notepad className="toolbarIcon" />
       <StickyNote className="toolbarIcon" />
       <Tooltip text={'Write/Draw'}>
-        <ToolbarIcon className="toolbarIcon" aria-label="Write/Draw">
+        <ToolbarIcon className="toolbarIcon" aria-label="Write/Draw" onClick={handleWriteOpen}>
           <img src={Write} alt="WriteHide" />
         </ToolbarIcon>
       </Tooltip>

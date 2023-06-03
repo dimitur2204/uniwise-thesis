@@ -40,12 +40,18 @@ p {
 
 .mainBar {
   display: flex;
-  background-color: #c2d0c3;
+  background-color: #424242;
   width: 100%;
   font-family: 'Signika-Regular';
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: center;
+}
+
+.mainBar p,
+.mainBar h1,
+.mainBar span {
+  color: white;
 }
 
 .left {
@@ -57,6 +63,11 @@ p {
 
 .gray {
   color: #797c81;
+}
+
+.topBarBtn{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .right {
@@ -86,49 +97,6 @@ p {
   padding-left: 5px;
 }
 
-/*white box design*/
-
-/* .topBarContainer{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.exitAndSubmit{
-  width: 60%;
-  height: 50px;
-  position: absolute;
-  top: -50px;
-  left: 100px;
-}
-
-.toolbar{
-  width: 60%;
-  height: 50px;
-  position: absolute;
-  top: -50px;
-  left: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  box-sizing: border-box;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color:#D7D8DA;
-}
-
-.whiteBox{
-  margin-top:100px;
-  height: 800px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-  box-sizing: border-box;
-  position: relative;
-} */
-
 .contentContainer {
   padding-top: 50px;
   height: 90vh;
@@ -143,20 +111,17 @@ p {
 }
 
 .toolbar {
-  width: 40%;
   height: 50px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-sizing: border-box;
-  padding: 10px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   background-color: #d7d8da;
 }
 
 .exitAndSubmit {
-  width: 60%;
+  width: 70%;
   display: flex;
   justify-content: end;
 }
@@ -168,6 +133,9 @@ p {
   padding-top: 25px;
   height: 80%;
   background-color: white;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .toolbarIcon img {
@@ -206,6 +174,7 @@ p {
   overflow: hidden;
   margin-left: -25px;
   margin-right: -25px;
+  z-index: 3;
 }
 
 .visible {
@@ -219,3 +188,60 @@ p {
   position: absolute;
   top: 50%;
 }
+
+.canvas {
+  border: 1px solid black;
+  width: 100%;
+  position: absolute;
+}
+
+.canvasButtons {
+  position: absolute;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  right: 0px;
+  top: 0px;
+  border-style: solid;
+  border-color: #1877b1;
+  border-radius: 6px;
+  border-width: 6px;
+}
+
+.canvasButton {
+  display: inline-block;
+  margin-right: 10px;
+  z-index: 101;
+}
+
+#color {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+}
+
+#color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#color::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.writeIcon{
+  width: 25px;
+  height: 25px;
+}
+
