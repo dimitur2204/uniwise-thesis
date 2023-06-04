@@ -13,7 +13,7 @@
     }
   },
   "common": {
-    "create": "Create",
+    "create": "Opret",
     "delete": "Slet",
     "participation": "Deltagelse",
     "invigilation": "Overvågning",
@@ -21,7 +21,13 @@
     "marking": "Bedømmelse",
     "reviewing": "Gennemgang",
     "managing": "Administrering",
+    "assessors": "Bedømmere",
     "support": "Support",
-    "license-administration": "Licensadministration"
+    "license-administration": "Licensadministration",
+    "edit": "Rediger",
+    "save": "Gem",
+    "and": "og",
+    "start": "starte",
+    "end": "ende"
   }
 }

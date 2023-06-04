@@ -18,8 +18,9 @@ import { useContext, useState } from 'react';
 import { PasswordField } from '../../../../components/PasswordField';
 import { ExternalPageModalContext } from '../../../../components/ExternalPageModal';
 import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
-const BASIC_I18N_KEY = 'index.tab.basic.info';
+const BASIC_I18N_KEY = 'index.tab.basic';
 const basicTrans = (key: string) => `${BASIC_I18N_KEY}.${key}`;
 const BasicBox = () => {
   const [exType, setExType] = useState('');
@@ -28,7 +29,7 @@ const BasicBox = () => {
   const { t } = useTranslation();
   return (
     <ActionCard
-      title={t(basicTrans('title'))}
+      title={t(basicTrans('info.title'))}
       contentSx={{
         padding: 0,
       }}
@@ -50,13 +51,13 @@ const BasicBox = () => {
         </Stack>
         <Stack>
           <Typography variant="h6" component="h4">
-            {t(basicTrans('code'))}: AKH0000001076
+            {t(basicTrans('info.code'))}: AKH0000001076
           </Typography>
           <Typography variant="body2" component="p">
-            {t(basicTrans('code'))}: AKH0000001076
+            {t(basicTrans('info.code'))}: AKH0000001076
           </Typography>
           <Typography variant="body2" component="p">
-            {t(basicTrans('id'))}: 1076
+            {t(basicTrans('info.id'))}: 1076
           </Typography>
         </Stack>
       </Stack>
@@ -66,7 +67,7 @@ const BasicBox = () => {
             disabled={!enabled}
             fullWidth
             variant="standard"
-            label={t(basicTrans('subtitle'))}
+            label={t(basicTrans('info.subtitle'))}
           />
         </Grid2>
         <Grid2 xs={12} md={6}>
@@ -74,7 +75,7 @@ const BasicBox = () => {
             disabled={!enabled}
             fullWidth
             variant="standard"
-            label={t(basicTrans('term'))}
+            label={t(basicTrans('info.term'))}
           />
         </Grid2>
         <Grid2 xs={12} md={6}>
@@ -88,7 +89,7 @@ const BasicBox = () => {
             fullWidth
             variant="outlined"
             size="small"
-            label={t(basicTrans('examination-type'))}
+            label={t(basicTrans('info.examination-type'))}
           >
             <MenuItem value="ord-ex">Ordinary examination</MenuItem>
           </TextField>
@@ -104,7 +105,7 @@ const BasicBox = () => {
             fullWidth
             variant="outlined"
             size="small"
-            label={t(basicTrans('purpose'))}
+            label={t(basicTrans('info.purpose'))}
           >
             <MenuItem value="ex">Examination</MenuItem>
           </TextField>
@@ -118,7 +119,7 @@ const DeadlinesBox = () => {
   const [enabled, setEnabled] = useState(false);
   return (
     <ActionCard
-      title="Deadlines"
+      title={t(basicTrans('deadlines.title'))}
       contentSx={{
         padding: 0,
       }}
@@ -128,10 +129,11 @@ const DeadlinesBox = () => {
       <Stack borderBottom={`1px solid ${CARD_BORDER}`} padding={2} direction="row" gap={3}>
         <Stack>
           <Typography variant="h6" component="h4">
-            Participation and marking deadlines
+            {t('common.participation')} {t('common.and')} {t('common.marking')}{' '}
+            {t(basicTrans('deadlines.title')).toLowerCase()}
           </Typography>
           <Typography variant="body2" component="p">
-            In this section you set the deadlines for the participation and assessment periods
+            {t(basicTrans('deadlines.description'))}
           </Typography>
         </Stack>
       </Stack>
@@ -139,7 +141,7 @@ const DeadlinesBox = () => {
         <Grid2 xs={12} md={6}>
           <DateTimePicker
             disabled={!enabled}
-            label="Participation start"
+            label={`${t('common.participation')} ${t('common.start')}`}
             slotProps={{
               textField: {
                 variant: 'standard',
@@ -151,7 +153,7 @@ const DeadlinesBox = () => {
         <Grid2 xs={12} md={6}>
           <DateTimePicker
             disabled={!enabled}
-            label="Participation end"
+            label={`${t('common.participation')} ${t('common.end')}`}
             slotProps={{
               textField: {
                 variant: 'standard',
@@ -163,7 +165,7 @@ const DeadlinesBox = () => {
         <Grid2 xs={12} md={6}>
           <DateTimePicker
             disabled={!enabled}
-            label="Marking start"
+            label={`${t('common.marking')} ${t('common.start')}`}
             slotProps={{
               textField: {
                 variant: 'standard',
@@ -175,7 +177,7 @@ const DeadlinesBox = () => {
         <Grid2 xs={12} md={6}>
           <DateTimePicker
             disabled={!enabled}
-            label="Marking end"
+            label={`${t('common.marking')} ${t('common.end')}`}
             slotProps={{
               textField: {
                 variant: 'standard',
@@ -274,7 +276,7 @@ const MarkingAndReviewBox = () => {
   const { setOpen } = useContext(ExternalPageModalContext);
   return (
     <ActionCard
-      title="Marking and review"
+      title={`${t('common.marking')} ${t('common.and')} ${t('common.reviewing').toLowerCase()}`}
       contentSx={{
         padding: 0,
       }}
@@ -290,11 +292,11 @@ const MarkingAndReviewBox = () => {
       >
         <Stack gap={0.5}>
           <Typography variant="h6" component="h4">
-            Assessors
+            {t('common.assessors')}
           </Typography>
           <Stack direction="row" gap={1}>
-            <Chip label="2 Internal assessors" />
-            <Chip label="1 External assessors" />
+            <Chip label={`2 ${t('common.internal')} ${t('common.assessors')}`} />
+            <Chip label={`1 ${t('common.external')} ${t('common.assessors')}`} />
           </Stack>
         </Stack>
         <Button
@@ -318,10 +320,10 @@ const MarkingAndReviewBox = () => {
       >
         <Stack gap={0.5}>
           <Typography variant="h6" component="h4">
-            Reviewers
+            {t('common.reviewers')}
           </Typography>
           <Stack direction="row" gap={1}>
-            <Chip label="1 Reviewers" />
+            <Chip label={`1 ${t('common.reviewers')}`} />
           </Stack>
         </Stack>
         <Button
@@ -331,7 +333,7 @@ const MarkingAndReviewBox = () => {
           variant="contained"
           color="secondary"
         >
-          Add reviewer
+          {t('common.add')} {t('common.reviewers').toLowerCase()}
         </Button>
       </Stack>
       <Stack
@@ -345,10 +347,12 @@ const MarkingAndReviewBox = () => {
       >
         <Stack gap={0.5}>
           <Typography variant="h6" component="h4">
-            Rubrics
+            {t('common.rubric', {
+              count: 0,
+            })}
           </Typography>
           <Stack direction="row" gap={1}>
-            <Chip label="0 Rubrics" />
+            <Chip label={`0 ${t('common.rubric', { count: 2 })}`} />
           </Stack>
         </Stack>
         <Button
@@ -358,7 +362,7 @@ const MarkingAndReviewBox = () => {
           variant="contained"
           color="secondary"
         >
-          Add rubric
+          {t('common.add')} {t('common.rubric', { count: 2 }).toLowerCase()}
         </Button>
       </Stack>
       <Stack
@@ -372,10 +376,10 @@ const MarkingAndReviewBox = () => {
       >
         <Stack gap={0.5}>
           <Typography variant="h6" component="h4">
-            Additional
+            {t('common.additional')}
           </Typography>
           <Typography variant="body2" component="h4">
-            Additional material for reviewers and assessors
+            {t(basicTrans('marking.additional.description'))}
           </Typography>
         </Stack>
         <Button
@@ -385,7 +389,7 @@ const MarkingAndReviewBox = () => {
           variant="contained"
           color="secondary"
         >
-          Additonal
+          {t('common.add')} {t('common.additional').toLowerCase()}
         </Button>
       </Stack>
     </ActionCard>

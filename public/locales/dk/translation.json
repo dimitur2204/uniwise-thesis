@@ -34,6 +34,11 @@
         "deadlines": {
           "title": "Deadline",
           "description": "I dette afsnit sætter du deadlines for deltagelses- og vurderingsperioderne"
+        },
+        "marking": {
+          "additional": {
+            "description": "Yderligere materiale til bedømmere og bedømmere"
+          }
         }
       }
     }
@@ -47,12 +52,19 @@
     "marking": "Bedømmelse",
     "reviewing": "Gennemgang",
     "managing": "Administrering",
+    "assessors": "Bedømmere",
+    "reviewers": "Gennemgåere",
+    "rubric": "Rubrik",
+    "additional": "Yderligere",
     "support": "Support",
     "license-administration": "Licensadministration",
     "edit": "Rediger",
+    "add": "Tilføj",
     "save": "Gem",
     "and": "og",
     "start": "starte",
-    "end": "ende"
+    "end": "ende",
+    "internal": "Internt",
+    "external": "Eksternt"
   }
 }
