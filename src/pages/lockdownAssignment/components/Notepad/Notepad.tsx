@@ -24,6 +24,7 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
   const [text, setText] = useState('');
   const [notepadPosition, setNotepadPosition] = useState({ top: '50%', left: '50%' });
 
+  /* handle the mouse movement*/
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging && notepadRef.current) {
@@ -37,6 +38,7 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
     return () => document.removeEventListener('mousemove', handleMouseMove);
   }, [isDragging, dragOffset]);
 
+  /* handles the mouse drag on start event*/
   const onDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsDragging(true);
     const offset = {
@@ -46,18 +48,22 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
     setDragOffset(offset);
   };
 
+   /* puts the draging state to false*/
   const onDragEnd = () => {
     setIsDragging(false);
   };
 
+  /* toggles the open state of the notepad*/
   const toggleOpen = () => {
     setIsOpened((prev) => !prev);
   };
 
+  /* toggles the expanded state of the notepad*/
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev);
   };
 
+  /* toggles the fullscreen state of the notepad*/
   const toggleFullScreen = () => {
     setIsFullScreen((prev) => !prev);
   
@@ -71,11 +77,12 @@ const Notepad: React.FC<NotepadProps> = ({ className }) => {
     }
   };
   
-
+/* handle text chagne in the textbox*/
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
 
+  /*character count*/
   const characterCount = text.length;
   const isMaxCharacters = characterCount >= 1000;
 

@@ -28,6 +28,7 @@ const StickyNote: React.FC<StickyNoteProps> = ({ onAddNote, onHideNotes, classNa
   const [notes, setNotes] = useState<Note[]>([]);
   const [isHidden, setIsHidden] = useState<boolean>(false);
 
+  /*adding notes as an object*/
   const handleAddNote = () => {
     const newNote: Note = {
       id: notes.length,
