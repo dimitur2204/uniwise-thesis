@@ -73,7 +73,7 @@ export const Header = () => {
                 i18n.changeLanguage(i18n.language === 'en' ? 'dk' : 'en');
               }}
             >
-              <Typography fontSize="0.9rem">
+              <Typography fontSize="0.9rem" color={common.white}>
                 {i18n.language === 'en' ? 'DK 🇩🇰' : 'EN 🇬🇧'}
               </Typography>
             </ButtonBase>

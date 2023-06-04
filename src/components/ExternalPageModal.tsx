@@ -1,5 +1,15 @@
-import { Box, Modal, Typography } from '@mui/material';
-import { Dispatch, PropsWithChildren, SetStateAction, createContext, useState } from 'react';
+import { Box, Dialog, DialogTitle, Modal, Typography } from '@mui/material';
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
+import { ThemeContext } from '../App';
+import { darkTheme } from '../theme';
+import { common, grey } from '@mui/material/colors';
 
 export const ExternalPageModalContext = createContext<{
   open: boolean;
@@ -13,30 +23,22 @@ export const ExternalPageModalProvider: React.FC<PropsWithChildren> = ({ childre
   const [open, setOpen] = useState(false);
   return (
     <ExternalPageModalContext.Provider value={{ open: open, setOpen: setOpen }}>
-      <Modal
+      <Dialog
         open={open}
         onClose={() => {
           setOpen(false);
         }}
       >
+        <DialogTitle>External page</DialogTitle>
         <Box
           sx={{
-            position: 'absolute' as 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 400,
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            p: 4,
+            p: 3,
+            pt: 0,
           }}
         >
-          <Typography variant="h6" component="h2">
-            External page
-          </Typography>
           <Typography>This button leads to an external page inside of WISEflow.</Typography>
         </Box>
-      </Modal>
+      </Dialog>
       {children}
     </ExternalPageModalContext.Provider>
   );
