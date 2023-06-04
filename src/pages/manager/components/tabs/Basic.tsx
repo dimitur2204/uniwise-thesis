@@ -195,7 +195,7 @@ const DetailsBox = () => {
   const [enabled, setEnabled] = useState(false);
   return (
     <ActionCard
-      title="Details"
+      title={t(basicTrans('details.title'))}
       contentSx={{
         padding: 0,
       }}
@@ -210,7 +210,7 @@ const DetailsBox = () => {
             fullWidth
             variant="outlined"
             size="small"
-            label="Anonymous participants"
+            label={t(basicTrans('details.anonymous-participants'))}
           >
             <MenuItem value="ord-ex">Participant index</MenuItem>
           </TextField>
@@ -219,10 +219,10 @@ const DetailsBox = () => {
           <Switch disabled={!enabled} />
           <Stack>
             <Typography variant="subtitle1" component="p">
-              Anonymous internal assessors
+              {t(basicTrans('details.anonymous-assessors.title'))}
             </Typography>
             <Typography variant="body2" component="p">
-              Makes the internal assessor invisible to students
+              {t(basicTrans('details.anonymous-assessors.description'))}
             </Typography>
           </Stack>
         </Grid2>
@@ -230,10 +230,10 @@ const DetailsBox = () => {
           <Switch disabled={!enabled} />
           <Stack>
             <Typography variant="subtitle1" component="p">
-              Individual assignments
+              {t(basicTrans('details.individual-assignments.title'))}
             </Typography>
             <Typography variant="body2" component="p">
-              Assignments are individual here which means that each student gets their own
+              {t(basicTrans('details.individual-assignments.description'))}
             </Typography>
           </Stack>
         </Grid2>
@@ -259,7 +259,7 @@ const DetailsBox = () => {
               fullWidth
               variant="outlined"
               size="small"
-              label="Grading scale"
+              label={t('common.grading-scale')}
             >
               <MenuItem value={1}>Passed/Not passed</MenuItem>
               <MenuItem value={2}>7 Scale Danish</MenuItem>
@@ -400,7 +400,7 @@ const ParticipationBox = () => {
   const [enabled, setEnabled] = useState(false);
   return (
     <ActionCard
-      title="Participation"
+      title={t(basicTrans('participation.title'))}
       contentSx={{
         padding: 0,
       }}
@@ -415,16 +415,16 @@ const ParticipationBox = () => {
           <Switch disabled={!enabled} />
           <Stack>
             <Typography variant="subtitle1" component="p">
-              Use the lockdown browser
+              {t(basicTrans('participation.lockdown-check.title'))}
             </Typography>
             <Typography variant="body2" component="p">
-              Makes the internal assessor invisible to students
+              {t(basicTrans('participation.lockdown-check.description'))}
             </Typography>
           </Stack>
         </Box>
         <Box width={'100%'} display="flex">
           <PasswordField
-            label="Invigilator password"
+            label={`${t('common.invigilator')} ${t('common.password').toLowerCase()}`}
             inputProps={{
               fullWidth: true,
               disabled: !enabled,
@@ -433,7 +433,7 @@ const ParticipationBox = () => {
         </Box>
         <Box width={'100%'} display="flex">
           <PasswordField
-            label="Invigilator password"
+            label={`${t('common.invigilator')} ${t('common.password').toLowerCase()}`}
             inputProps={{
               fullWidth: true,
               disabled: !enabled,
