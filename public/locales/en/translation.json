@@ -1,33 +1,108 @@
 {
   "index": {
     "header": {
-      "title": "Flow titel",
-      "description": "Flow undertekst og hvad flowet handler om her"
+      "title": "Flow title",
+      "description": "Flow subtitle and what the flow is about here"
     },
     "action": {
-      "settings": "Indstillinger",
-      "messages": "Beskeder",
-      "remarking": "Skab et bemærkningsflow",
-      "reset": "Nulstil karakterer",
-      "create-copy": "Opret kopi af flow"
+      "settings": "Settings",
+      "messages": "Messages",
+      "remarking": "Remarking",
+      "reset": "Reset",
+      "create-copy": "Create copy of the flow"
+    },
+    "tab": {
+      "title": {
+        "basic": "Basic",
+        "hand-out": "Hand-out",
+        "associates": "Associates",
+        "rooms": "Rooms",
+        "sources": "Sources",
+        "combine": "Combine",
+        "advanced": "Advanced"
+      },
+      "basic": {
+        "info": {
+          "title": "Basic information",
+          "code": "Flow code",
+          "id": "Flow ID",
+          "subtitle": "Subtitle",
+          "term": "Term",
+          "examination-type": "Examination type",
+          "purpose": "Purpose"
+        },
+        "deadlines": {
+          "title": "Deadlines",
+          "description": "In this section you set the deadlines for the participation and assessment periods"
+        },
+        "details": {
+          "title": "Details",
+          "anonymous-participants": "Anonymous participants",
+          "anonymous-assessors": {
+            "title": "Anonymous assessors",
+            "description": "Make the internal assessor invisible to students"
+          },
+          "individual-assignments": {
+            "title": "Individual assignments",
+            "description": "Makes assignments individual, which means that each student gets their own"
+          }
+        },
+        "marking": {
+          "additional": {
+            "description": "Additional material for assessors and reviewers"
+          }
+        },
+        "participation": {
+          "title": "Participation",
+          "lockdown-check": {
+            "title": "Use lockdown browser",
+            "description": "Make the internal assessor invisible to students"
+          }
+        }
+      }
+    },
+    "participants": {
+      "title": "Deltagere",
+      "description": "Here you can view and edit participants in the flow",
+      "actions": {
+        "manage-groups": "Manage groups",
+        "participation-monitor": "Participation monitor",
+        "tools": "Tools"
+      },
+      "tabs": {
+        "basic-info": "Basic information",
+        "participant-details": "Participant details",
+        "final-grade": "Final grade"
+      }
     }
   },
   "common": {
-    "create": "Opret",
-    "delete": "Slet",
-    "participation": "Deltagelse",
-    "invigilation": "Overvågning",
-    "authoring": "Forfatter",
-    "marking": "Bedømmelse",
-    "reviewing": "Gennemgang",
-    "managing": "Administrering",
-    "assessors": "Bedømmere",
+    "create": "Create",
+    "delete": "Delete",
+    "participation": "Participation",
+    "participants": "Participants",
+    "invigilation": "Invigilation",
+    "invigilator": "Invigilator",
+    "authoring": "Authoring",
+    "marking": "Marking",
+    "reviewing": "Reviewing",
+    "managing": "Managing",
+    "assessors": "Assessors",
+    "reviewers": "Reviewers",
+    "rubric": "Rubric",
+    "additional": "Additional",
     "support": "Support",
-    "license-administration": "Licensadministration",
-    "edit": "Rediger",
-    "save": "Gem",
-    "and": "og",
-    "start": "starte",
-    "end": "ende"
+    "license-administration": "License administration",
+    "edit": "Edit",
+    "add": "Add",
+    "save": "Save",
+    "and": "and",
+    "start": "Start",
+    "end": "End",
+    "internal": "Internal",
+    "external": "External",
+    "grading-scale": "Grading scale",
+    "grading": "Grading",
+    "password": "Password"
   }
 }
