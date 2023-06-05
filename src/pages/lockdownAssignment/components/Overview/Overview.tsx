@@ -3,7 +3,6 @@ import { IconButton } from '@mui/material';
 import { Checkbox } from '@uniwise/flow-ui-react';
 import FlagGreen from '../../../../assets/images/flagGreen.png';
 import Close from '../../../../assets/images/close.png';
-
 import questionsData from '../../data/Quiz.json';
 import './Overview.css';
 
@@ -21,7 +20,6 @@ const Overview: React.FC<Props> = ({
   setCurrentQuestionIndex,
   selectedOptionIndices,
   handleToggleOverview,
-  handleFlag,
   flagged,
 }) => {
   const [showFlagged, setShowFlagged] = useState(false);
@@ -61,7 +59,7 @@ const Overview: React.FC<Props> = ({
   };
 
   return (
-    <>
+    <div className='overviewBox'>
       <div className="overviewHeader">
         <div className="overviewHeaderTitle">
           <h2>Overview</h2>
@@ -112,7 +110,7 @@ const Overview: React.FC<Props> = ({
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -46,21 +46,16 @@ export const SettingModal = () => {
         trigger={
           <Tooltip text="Settings">
             <WfModal.Trigger>
-              <IconButton
+              <Button
                 aria-label="settings"
                 size="large"
-                className="active"
-                sx={{
-                  backgroundColor: '#A3ACA4',
-                  borderRadius: '4px',
-                  '&:hover': {
-                    backgroundColor: '#8F9E91',
-                    color: 'white',
-                  },
-                }}
+                className='topBarBtn'
+                variant="contained"
+                color="secondary"
+                sx={{padding: "12px"}}
               >
                 <SettingsIcon fontSize="large" />
-              </IconButton>
+              </Button>
             </WfModal.Trigger>
           </Tooltip>
         }

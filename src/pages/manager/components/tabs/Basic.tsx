@@ -361,6 +361,7 @@ const MarkingAndReviewBox = () => {
           }}
           variant="contained"
           color="secondary"
+          
         >
           {t('common.add')} {t('common.rubric', { count: 2 }).toLowerCase()}
         </Button>

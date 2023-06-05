@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IconButton } from '@mui/material';
+import { IconButton, Button } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MessageIcon from '@mui/icons-material/Message';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -14,7 +14,7 @@ import CountDownTimer from './components/CountdownTimer';
 import flowMulti from '../../assets/images/flowMulti.svg';
 import questionsData from './data/Quiz.json';
 import { Tooltip } from '@uniwise/flow-ui-react';
-
+import PaintApp from './components/Canvas/Canvas';
 
 export default function AssignmentPage() {
   const totalQuestions = questionsData.questions.length;
@@ -26,7 +26,10 @@ export default function AssignmentPage() {
     Array(questionsData.questions.length).fill(null),
   );
   const [showOverview, setShowOverview] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [showWrite, setShowWrite] = useState(false);
+  const [showDrawings, setShowDrawings] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); 
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,6 +41,15 @@ export default function AssignmentPage() {
 
   const handleToggleOverview = () => {
     setShowOverview(!showOverview);
+  };
+
+  const handleWriteOpen = () => {
+    setShowWrite(!showWrite);
+    setShowDrawings(true);
+  };
+
+  const handleShowDrawings = () => {
+    setShowDrawings(!showDrawings);
   };
 
   const handleOptionSelect = (index: number) => {
@@ -86,8 +98,6 @@ export default function AssignmentPage() {
     }
   };
 
-
-
   return (
     <div className="assignmentBody">
       <div className="mainBar">
@@ -105,43 +115,33 @@ export default function AssignmentPage() {
           <SettingModal></SettingModal>
 
           <Tooltip text="Messages">
-          <IconButton
-            aria-label="message"
-            size="large"
-            className="active"
-            sx={{
-              backgroundColor: '#A3ACA4',
-              borderRadius: '4px',
-              '&:hover': {
-                backgroundColor: '#8F9E91',
-                color: 'white',
-              },
-            }}
-          >
-            <MessageIcon fontSize="large" />
-          </IconButton>
+            <Button
+              aria-label="message"
+              size="large"
+              className='topBarBtn'
+              variant="contained"
+              color="secondary"
+              sx={{padding: "12px"}}
+            >
+              <MessageIcon fontSize="large" />
+            </Button>
           </Tooltip>
 
           <Tooltip text="Description">
-          <IconButton
-            aria-label="description"
-            size="large"
-            className="active"
-            sx={{
-              backgroundColor: '#A3ACA4',
-              borderRadius: '4px',
-              '&:hover': {
-                backgroundColor: '#8F9E91',
-                color: 'white',
-              },
-            }}
-          >
-            <DescriptionIcon fontSize="large" />
-          </IconButton>
+            <Button
+              aria-label="description"
+              size="large"
+              className='topBarBtn'
+              variant="contained"
+              color="secondary"
+              sx={{padding: "12px"}}
+            >
+              <DescriptionIcon fontSize="large" />
+            </Button>
           </Tooltip>
 
           <div className="timer">
-            <AccessTimeIcon fontSize="large"></AccessTimeIcon>
+            <AccessTimeIcon color='secondary' fontSize="large"></AccessTimeIcon>
             <div className="timerText">
               <CountDownTimer hours={1} minutes={20} seconds={40} />
               <p className="gray">Time left</p>
@@ -153,17 +153,22 @@ export default function AssignmentPage() {
         <div className="topBarContainer">
           <div className="toolbar">
             <Toolbar
+              handleWriteOpen={handleWriteOpen}
+              handleShowDrawings={handleShowDrawings}
               handleToggleOverview={handleToggleOverview}
               handleFlag={handleFlag}
               isFlagged={isFlagged}
             />
           </div>
           <div className="exitAndSubmit">
-            <ExitModal/>
-            <SubmitModal selectedOptionIndices={selectedOptionIndices}/>
+            <ExitModal />
+            <SubmitModal selectedOptionIndices={selectedOptionIndices} />
           </div>
         </div>
         <div className="whiteBox">
+
+            <PaintApp showWrite={showWrite} currentQuestionIndex={currentQuestionIndex} showDrawings={showDrawings} />
+    
           {isLoading ? (
             <Loader className="loader" active size="large" />
           ) : (
