@@ -306,7 +306,7 @@ const MarkingAndReviewBox = () => {
           variant="contained"
           color="secondary"
         >
-          Add assessor
+          {t('common.add')} {t('common.assessors').toLowerCase()}
         </Button>
       </Stack>
       <Stack
